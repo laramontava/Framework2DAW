@@ -3,7 +3,6 @@
 exit;*/
 
 function upload_files() {
-    return json_encode("upload_files");
     $error = "";
     $copiarFichero = false;
     $extensiones = array('jpg', 'jpeg', 'gif', 'png', 'bmp');
@@ -23,22 +22,28 @@ function upload_files() {
 
     if ($error_fitxer>0) { // El error 0 quiere decir que se subió el archivo correctamente
         switch ($error_fitxer){
-            case 1: 
-                $error .=  'Fitxer major que upload_max_filesize <br>'; 
-                break;
-            case 2: 
-                $error .=  'Fitxer major que max_file_size <br>';
-                break;
-            case 3: 
-                $error .=  'Fitxer només parcialment pujat <br>';
-                break;
+            case 1: $error .=  'Fitxer major que upload_max_filesize <br>'; break;
+            case 2: $error .=  'Fitxer major que max_file_size <br>';break;
+            case 3: $error .=  'Fitxer només parcialment pujat <br>';break;
+            //case 4: $error .=  'No has pujat cap fitxer <br>';break; //assignarem a l'us default-avatar
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////
+    //if($_FILES['avatar']['error'] !== 0) { //Assignarem a l'us default-avatar
+        //$error .=  'Archivo no subido correctamente <br>';
+    //}
     
+    ////////////////////////////////////////////////////////////////////////////
     if ($_FILES['file']['size'] > 55000 ){
         $error .=  "Large File Size <br>";
     }
-    
+
+    ////////////////////////////////////////////////////////////////////////////
+    //if ($_FILES['avatar']['name'] === "") { //Assignarem a l'us default-avatar
+        //$error .= "No ha seleccionado ninguna imagen. Te proporcionamos un default-avatar<br>";
+    //}
+
     if ($_FILES['file']['name'] !== "") {
         ////////////////////////////////////////////////////////////////////////////
         @$extension = strtolower(end(explode('.', $_FILES['file']['name']))); // Obtenemos la extensión, en minúsculas para poder comparar
@@ -55,8 +60,18 @@ function upload_files() {
         if ($width > 150 || $height > 150){
             $error .=   "Maximum width and height exceeded. Please upload images below 100x100 px size <br>";
         }
-    }
-    
+    }   
+        /*
+            $image_size_info    = getimagesize($imagen); //get image size
+            if($image_size_info){
+                $image_width        = $image_size_info[0]; //image width
+                $image_height       = $image_size_info[1]; //image height
+                $image_type         = $image_size_info['mime']; //image type
+            }else{
+                die("Make sure image file is valid!");
+            }
+        */
+
     ////////////////////////////////////////////////////////////////////////////
     $upfile = $_SERVER['DOCUMENT_ROOT'].'/Framework/media/'.$_FILES['avatar']['name'];
     if (is_uploaded_file($_FILES['file']['tmp_name'])){
@@ -69,8 +84,8 @@ function upload_files() {
         }else{
                 $error .=   "Invalid File...";
         }
-    }
-    
+    } 
+
     $i=0;
     if ($error == "") {
         if ($copiarFichero) {
@@ -89,7 +104,6 @@ function upload_files() {
     }else{
         return $return=array('resultado'=>false,'error'=>$error,'datos'=>"");
     }
-    
 }
 
 function remove_files(){
