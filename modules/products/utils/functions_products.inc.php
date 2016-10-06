@@ -1,7 +1,9 @@
 <?php
-    function val_formproduct(){
+    function val_formproduct($product){
         $error = array();
         $valido = true;
+    //    echo json_encode($valido);
+    //    exit;
         $filtro = array(
             'id' => array(
                 'filter' => FILTER_VALIDATE_REGEXP,
@@ -33,21 +35,22 @@
                 )
             );
         
-        $resultado = filter_input_array(INPUT_POST, $filtro);
-        $resultado['category'] = $_POST['category'];
-        $resultado['condition'] = $_POST['condition'];
-        $resultado['datepicker1'] = $_POST['datepicker1'];
-        $resultado['datepicker2'] = $_POST['datepicker2'];
+        $resultado = filter_var_array($product, $filtro);
         
-        if($resultado['datepicker1'] && $resultado['datepicker2']){
+        $resultado['category'] = $product['category'];
+        $resultado['condition'] = $product['condition'];
+        $resultado['datepicker1'] = $product['datepicker1'];
+        $resultado['datepicker2'] = $product['datepicker2'];
+        
+/*        if($resultado['datepicker1'] && $resultado['datepicker2']){
             $val = validate_date($_POST['datepicker1'], $_POST['datepicker2']);
             if(!$val){
                 $error['datepicker2'] = 'Error datepicker2';
                 $valido = false;
             }
-        }
+        }*/
         
-        if(count($_POST['category']) <= 1){
+        if(count($resultado['category']) <= 1){
             $error['category']='You have to choose 2 categories';
             $valido = false;
         }
@@ -80,10 +83,13 @@
         }else{
             $valido = false;
         };
+        
+        
         return $return = array('resultado' => $valido, 'error' => $error, 'datos' => $resultado);
+        
     }
     
-    function validate_date($firstdates, $seconddates){
+/*    function validate_date($firstdates, $seconddates){
         $firstdate = date("d/m/Y", strtotime($firstdates));
         $seconddate = date("d/m/Y", strtotime($seconddates));
         
@@ -98,7 +104,7 @@
             return true;
         }
         
-    }   
+    }   */
     //index.php, header.php (titulo cambia), menu.php, utils/upload.php
     //modulo -> functionsusers.inc.php, create_users.php, 
     // result_users.php, list_users.js, users.js, controller_users.class.php

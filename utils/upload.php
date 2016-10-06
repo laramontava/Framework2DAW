@@ -1,7 +1,4 @@
 <?php
-/*echo json_encode("entra upload");
-exit;*/
-
 function upload_files() {
     $error = "";
     $copiarFichero = false;
@@ -29,10 +26,6 @@ function upload_files() {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////
-    //if($_FILES['avatar']['error'] !== 0) { //Assignarem a l'us default-avatar
-        //$error .=  'Archivo no subido correctamente <br>';
-    //}
     
     ////////////////////////////////////////////////////////////////////////////
     if ($_FILES['file']['size'] > 55000 ){
@@ -40,9 +33,7 @@ function upload_files() {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    //if ($_FILES['avatar']['name'] === "") { //Assignarem a l'us default-avatar
-        //$error .= "No ha seleccionado ninguna imagen. Te proporcionamos un default-avatar<br>";
-    //}
+    
 
     if ($_FILES['file']['name'] !== "") {
         ////////////////////////////////////////////////////////////////////////////
@@ -61,16 +52,7 @@ function upload_files() {
             $error .=   "Maximum width and height exceeded. Please upload images below 100x100 px size <br>";
         }
     }   
-        /*
-            $image_size_info    = getimagesize($imagen); //get image size
-            if($image_size_info){
-                $image_width        = $image_size_info[0]; //image width
-                $image_height       = $image_size_info[1]; //image height
-                $image_type         = $image_size_info['mime']; //image type
-            }else{
-                die("Make sure image file is valid!");
-            }
-        */
+        
 
     ////////////////////////////////////////////////////////////////////////////
     $upfile = $_SERVER['DOCUMENT_ROOT'].'/Framework/media/'.$_FILES['avatar']['name'];

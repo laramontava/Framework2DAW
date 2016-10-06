@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     $(this).fill_or_clean();
 
-    /////////////validate products/////////////
+    /////////////  validate products  /////////////
     $("#submit_products").click(function () {
         validate_product();
     });
@@ -63,15 +63,11 @@ $(document).ready(function () {
     /////////////turn back clean the form/////////////
  /*   $.get("modules/products/controller/controller_products.class.php",//$.get("modules/products/controller_products.class.php?load_data=true",
         function(response){
-
             if(response.products === ""){
                 $("#id").val('');
-
-
             }else{
                 $("#id").val(response.products.id);
             }
-
     }, "json");*/
 
 //////////////////////////////////////////////
@@ -90,7 +86,7 @@ $(document).ready(function () {
                 $("#percent").html('100%');
                 $('.msg').text('').removeClass('msg_error');
                 $('.msg').text('Success image upload').addClass('msg_ok').animate({'right':'300px'}, 300);
-                console.log(response);
+          //      console.log(response);
             });
         },
         complete: function (file) {
@@ -114,7 +110,7 @@ $(document).ready(function () {
                     $("#e_avatar").html("");
 
                     var json = JSON.parse(data);
-                    console.log(data);
+             //       console.log(data);
                     console.log("dropzone");
                     if (json.res === true) {
                         var element;
@@ -207,8 +203,8 @@ function validate_product(){
             j++;
         }
     }
-    var accept = document.getElementsByName('accept').value;
-    //console.log(accept);
+    //var accept = document.getElementsByName('accept').value;
+    
     //Validations
     var id_regexpr = /^[1-9]{8}$/;
     var string_regexpr = /^[A-Z,a-z]{2,30}$/;
@@ -217,7 +213,7 @@ function validate_product(){
 
 
     $(".error").remove();
-    if ($("#id").val() == "" || $("#id").val() === "Introduce product ID") {
+    if ($("#id").val() === "" || $("#id").val() === "Introduce product ID") {
         $("#id").focus().after("<span class='error'>Introduce product ID</span>");
         result = false;
         return false;
@@ -227,7 +223,7 @@ function validate_product(){
         return false;
     }
 
-    if($("#name").val() == "" || $("#name").val() === "Introduce product name") {
+    if($("#name").val() === "" || $("#name").val() === "Introduce product name") {
         $("#name").focus().after("<span class='error'>Introduce product name</span>");
         result = false;
         return false;
@@ -237,13 +233,13 @@ function validate_product(){
         return false;
     }
 
-    if($("#description").val() == "" || $("#description").val() === "Introduce a description") {
+    if($("#description").val() === "" || $("#description").val() === "Introduce a description") {
         $("#description").focus().after("<span class='error'>Introduce a description</span>");
         result = false;
         return false;
     }
 
-    if($("#datepicker1").val() == "" || $("#datepicker1").val() === "Introduce a date") {
+    if($("#datepicker1").val() === "" || $("#datepicker1").val() === "Introduce a date") {
         $("#datepicker1").focus().after("<span class='error'>Introduce product name</span>");
         result = false;
         return false;
@@ -253,7 +249,7 @@ function validate_product(){
         return false;
     }
 
-    if($("#datepicker2").val() == "" || $("#datepicker2").val() === "Introduce a refund date") {
+    if($("#datepicker2").val() === "" || $("#datepicker2").val() === "Introduce a refund date") {
         $("#datepicker2").focus().after("<span class='error'>Introduce product name</span>");
         result = false;
         return false;
@@ -263,7 +259,7 @@ function validate_product(){
         return false;
     }
 
-    if($("#price").val() == "" || $("#price").val() === "Introduce a product rate") {
+    if($("#price").val() === "" || $("#price").val() === "Introduce a product rate") {
         $("#price").focus().after("<span class='error'>Introduce product rate</span>");
         result = false;
         return false;
@@ -273,7 +269,7 @@ function validate_product(){
         return false;
     }
 
-    if($("#stock").val() == "" || $("#stock").val() === "Introduce a product stock") {
+    if($("#stock").val() === "" || $("#stock").val() === "Introduce a product stock") {
         $("#stock").focus().after("<span class='error'>Introduce product stock</span>");
         result = false;
         return false;
@@ -283,34 +279,45 @@ function validate_product(){
         return false;
     }
 
-
+    // Todo correcto
     if(result){
-        var data = {"id":id, "name":name, "description":description, "condition":condition,
-            "datepicker1":datepicker1, "datepicker2":datepicker2,"price":price,"stock":stock,
-            "category":category, "accept":accept};
-
+        var data = {
+            "id":id, 
+            "name":name, 
+            "description":description, 
+            "condition":condition,
+            "datepicker1":datepicker1, 
+            "datepicker2":datepicker2,
+            "price":price,
+            "stock":stock,
+            "category":category
+            //"accept":accept
+        };
+        
         var data_products_JSON = JSON.stringify(data);
-        console.log(data_products_JSON);
+        //console.log(data_products_JSON + " Console log de controller products JS");
 
         $.post('modules/products/controller/controller_products.class.php',
             {alta_products_json: data_products_JSON},
         function (response) {
-            if (response.success) {
-                window.location.href = response.redirect;
-
-            //    console.log(redirect1);
-                console.log("correctamente");
-            }
             console.log(response);
-//        }, "json").fail(function (xhr){
+            
+            if (response.success) {
+                console.log("en response success");
+                window.location.href = response.redirect;
+                //console.log(redirect1);
+                
+            }
+            
+        }, "json").fail(function (xhr){
+            
+            console.log("fail");
 //            console.log(xhr.responseJSON);
 //            console.log("fail");
      /*       if (xhr.responseJSON.error.id)
                 $("#id").focus().after("<span class='error1'>" + xhr.responseJSON.error.id + "</span>");
-
             if (xhr.responseJSON.error.name)
                 $("#name").focus().after("<span  class='error1'>" + xhr.responseJSON.error.name + "</span>");
-
             if (xhr.responseJSON.success1) {
                 if (xhr.responseJSON.img_avatar !== "/PhpProject1/media/default-avatar.png") {
                     //$("#progress").show();
@@ -326,7 +333,7 @@ function validate_product(){
             }
             */
             });
-        } /////end result
+        } /////  END result
 
     //    $("#form_products").submit();
     //    $("#form_products").attr("action", "index.php?module=products");
