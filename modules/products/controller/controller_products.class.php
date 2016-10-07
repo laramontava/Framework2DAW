@@ -1,10 +1,19 @@
 <?php
   
-	//include('modules/products/utils/functions_products.inc.php');
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/utils/upload.php");
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/modules/products/utils/functions_products.inc.php");
 	session_start();
 
+    ///////////////////  UPLOAD  ///////////////////
+	if((isset($_GET["upload"])) && ($_GET["upload"] == true)){
+			   
+	    $result_avatar = upload_files();
+	    $_SESSION['result_avatar'] = $result_avatar;
+		echo json_encode($result_avatar);
+    	//exit;
+	}
+
+	///////////////////  ALTA  ///////////////////
 	if ((isset($_POST['alta_products_json']))){
 		//echo json_encode("Hola");
 		//echo json_encode($_POST['alta_products_json']);
@@ -32,21 +41,18 @@
 	        $arrArgument = array(
 	        	'id' => ucfirst($result['datos']['id']),
 	            'name' => ucfirst($result['datos']['name']),
-	           /* 'last_name' => ucfirst($result['datos']['last_name']),
-	            'birth_date' => $result['datos']['birth_date'],
-	            'title_date' => $result['datos']['title_date'],
-	            'address' => $result['datos']['address'],
-	            'user' => $result['datos']['user'],
-	            'pass' => $result['datos']['pass'],
-	            'email' => $result['datos']['email'],
-	            'en_lvl' => strtoupper($result['datos']['en_lvl']),
-	            'interests' => $result['datos']['interests'],*/
+	            'description' => ucfirst($result['datos']['description']),
+	            'condition' => $result['datos']['condition'],
+	            'datepicker1' => $result['datos']['datepicker1'],
+	            'datepicker2' => $result['datos']['datepicker2'],
+	            'price' => $result['datos']['price'],
+	            'stock' => $result['datos']['stock'],
 	            'avatar' => $result_avatar['datos']
 	        );
 			
-	        $mensaje = "User has been successfully registered";
+	        $mensaje = "Product has been successfully registered";
 	
-	        //redirigir a otra p�gina con los datos de $arrArgument y $mensaje
+	        //redirigir a otra página con los datos de $arrArgument y $mensaje
 	        $_SESSION['product'] = $arrArgument;
 	        $_SESSION['msje'] = $mensaje;
 	        $callback = "index.php?module=products&view=results_products";
@@ -56,8 +62,6 @@
 	        echo json_encode($jsondata);
 	        
 	    } else {
-	        //$error = $result['error'];
-	        //$error_avatar = $result_avatar['error'];
 	        $jsondata["success"] = false;
 	        $jsondata["error"] = $result['error'];
 	        $jsondata["error_avatar"] = $result_avatar['error'];
@@ -70,42 +74,39 @@
 	        header('HTTP/1.0 400 Bad error');
 	        
 	    }
-	    //echo json_encode($jsondata["success"]);
-	    //exit;
 	}
 
-/*	function alta_products(){
-	   // $jsondata = array();
-	   // $productJSON = json_decode($_POST["alta_products_json"], true);
-
-	   $jsondata["success"] = true;
-	   $jsondata["response"] = true;
-
-	  	echo("php ------------");
-	    echo json_encode("Hola mundo");
-	  //  console_log($productJSON);
-	  //  $result = validate_product($productJSON);
-
-	  //  echo json_encode($jsondata);
-	  //  exit;
-	}*/
-
-
-      ///////////////////  UPLOAD  ///////////////////
-			if((isset($_GET["upload"])) && ($_GET["upload"] == true)){
-			   
-			    $result_avatar = upload_files();
-			    
-				echo json_encode($result_avatar);
-        		exit;
-			}
 
       ///////////////////  DELETE  ///////////////////
       if ((isset($_GET["delete"])) && ($_GET["delete"] == true)) {
             $result = remove_files();
 			
         	echo json_encode($result);
-        	exit;
+        //	exit;
            
       }
 
+	///////////////////  LOAD  ///////////////////
+	if (isset($_GET["load"]) && $_GET["load"] == true) {
+    	$jsondata = array();
+    	if (isset($_SESSION['product'])) {
+        	//echo debug($_SESSION['user']);
+        	$jsondata["product"] = $_SESSION['product'];
+    	}
+    	if (isset($_SESSION['msje'])) {
+        	//echo $_SESSION['msje'];
+        	$jsondata["msje"] = $_SESSION['msje'];
+    	}
+    	$jsondata["avatar"] = $_SESSION['result_avatar'];
+    	close_session();
+    	echo json_encode($jsondata);
+    	exit;
+	}
+
+	function close_session() {
+    	unset($_SESSION['product']);
+    	unset($_SESSION['msje']);
+    	$_SESSION = array(); // Destruye todas las variables de la sesión
+    	session_destroy(); // Destruye la sesión
+	}
+		

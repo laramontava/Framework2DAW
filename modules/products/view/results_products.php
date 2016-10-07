@@ -1,3 +1,4 @@
+       
        <section id="home" class="head-main-img">
          
                <div class="container">
@@ -10,13 +11,13 @@
            
        </section>
     <!--/.HEADING END-->
-    <!--
-    <div class="<?php $_SESSION['typemsage']?>">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-         Correct
-    </div>-->
+    <fieldset>
+        <div id="content"></div>
+        <script type="text/javascript" src="modules/products/view/js/list_products.js" ></script>
+    </fieldset>
+    
 <?php
-$product = $_SESSION['product'];
+/*$product = $_SESSION['product'];
 debug($product);
 
 foreach ($product as $indice => $valor){
@@ -29,4 +30,4 @@ foreach ($product as $indice => $valor){
 				echo "$indice: $valor<br>";
 			}
 		}
-	
+	*/

@@ -39,8 +39,9 @@ jQuery.fn.fill_or_clean = function () {
 
 Dropzone.autoDiscover = false;
 $(document).ready(function () {
-
-    /////////////Datepicker/////////////
+//////////////////////////////////////////////
+/////////////     Datepicker     /////////////
+//////////////////////////////////////////////
     $( "#datepicker1" ).datepicker({
     		    dateFormat: 'dd/mm/yy',
 			    changeMonth: true,
@@ -55,18 +56,20 @@ $(document).ready(function () {
 
     $(this).fill_or_clean();
 
-    /////////////  validate products  /////////////
+    //////////////////////////////////////////////
+    /*              Validate Products           */
+    //////////////////////////////////////////////
     $("#submit_products").click(function () {
         validate_product();
     });
 
     /////////////turn back clean the form/////////////
- /*   $.get("modules/products/controller/controller_products.class.php",//$.get("modules/products/controller_products.class.php?load_data=true",
+/*    $.get("modules/products/controller_products.class.php?load_data=true",
         function(response){
-            if(response.products === ""){
+            if(response.product === ""){
                 $("#id").val('');
             }else{
-                $("#id").val(response.products.id);
+                $("#id").val(response.product.id);
             }
     }, "json");*/
 
@@ -180,7 +183,8 @@ $(document).ready(function () {
            return false;
        }
     });
-});
+}); //   END ready
+
 function validate_product(){
 
     var result = true;
@@ -334,7 +338,4 @@ function validate_product(){
             */
             });
         } /////  END result
-
-    //    $("#form_products").submit();
-    //    $("#form_products").attr("action", "index.php?module=products");
 }
