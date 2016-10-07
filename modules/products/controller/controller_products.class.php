@@ -47,6 +47,7 @@
 	            'datepicker2' => $result['datos']['datepicker2'],
 	            'price' => $result['datos']['price'],
 	            'stock' => $result['datos']['stock'],
+	            'category' => $result['datos']['category'],
 	            'avatar' => $result_avatar['datos']
 	        );
 			
@@ -110,3 +111,18 @@
     	session_destroy(); // Destruye la sesión
 	}
 		
+		
+		
+	if ((isset($_GET["load_data"])) && ($_GET["load_data"] == true)) {
+    	$jsondata = array();
+
+    if (isset($_SESSION['product'])) {
+        $jsondata["product"] = $_SESSION['product'];
+        echo json_encode($jsondata);
+        exit;
+    } else {
+        $jsondata["product"] = "";
+        echo json_encode($jsondata);
+        exit;
+    }
+}

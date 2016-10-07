@@ -78,11 +78,11 @@
 					  <div id="e_category"></div>
           </div>
 
-          <div class="form-group">
+        <!--  <div class="form-group">
             <label for="accept">Admitir pedidos:</label><br>
             <input class="accept" name="accept" type="radio" value="Accept" checked> Permitir pedidos <br>
 				    <input class="accept" name="accept" type="radio" value="Deny"> Denegar pedidos <br>
-          </div>
+          </div>-->
 
           <div class="form-group" id="progress">
             <div id="bar"></div>

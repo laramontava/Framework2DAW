@@ -65,6 +65,10 @@ function pintar_product(data) {
     stock.innerHTML = "stock = ";
     stock.innerHTML += data.product.stock;
     
+    var category = document.createElement("div");
+    category.innerHTML = "category = ";
+    category.innerHTML += data.product.category;
+    
     var cad = data.avatar.datos;
     
     var img = document.createElement("div");
@@ -82,6 +86,7 @@ function pintar_product(data) {
     parrafo.appendChild(datepicker2);
     parrafo.appendChild(price);
     parrafo.appendChild(stock);
+    parrafo.appendChild(category);
     content.appendChild(div_product);
     content.appendChild(img);
 }

@@ -64,14 +64,42 @@ $(document).ready(function () {
     });
 
     /////////////turn back clean the form/////////////
-/*    $.get("modules/products/controller_products.class.php?load_data=true",
+    $.get("modules/products/controller/controller_products.class.php?load_data=true",
         function(response){
             if(response.product === ""){
                 $("#id").val('');
+                $("#name").val('');
+                $("#description").val('');
+                $("#condition").val('New');
+                $("#datepicker1").val('');
+                $("#datepicker2").val('');
+                $("#price").val('');
+                $("#stock").val('');
+                var inputElements = document.getElementsByClassName('messageCheckbox');
+                    for (var i = 0; i < inputElements.length; i++) {
+                        if (inputElements[i].checked) {
+                            inputElements[i].checked = false;
+                        }
+                    }
             }else{
                 $("#id").val(response.product.id);
+                $("#name").val(response.product.name);
+                $("#description").val(response.product.description);
+                $("#condition").val(response.product.condition);
+                $("#datepicker1").val(response.product.datepicker1);
+                $("#datepicker2").val(response.product.datepicker2);
+                $("#price").val(response.product.price);
+                $("#stock").val(response.product.stock);
+                var category = response.product.category;
+                    var inputElements = document.getElementsByClassName('messageCheckbox');
+                    for (var i = 0; i < category.length; i++) {
+                        for (var j = 0; j < inputElements.length; j++) {
+                            if(category[i] ===inputElements[j] )
+                                inputElements[j].checked = true;
+                        }
+                    }
             }
-    }, "json");*/
+    }, "json");
 
 //////////////////////////////////////////////
 //                 DROPZONE
