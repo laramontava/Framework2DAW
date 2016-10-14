@@ -1,7 +1,4 @@
 <?php
-echo json_encode("dentro de bll");
-exit;
-/*
 $path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
 define('SITE_ROOT', $path);
 define('MODEL_PATH', SITE_ROOT . 'model/');

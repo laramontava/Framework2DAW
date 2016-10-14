@@ -1,7 +1,5 @@
 <?php
-echo json_encode("dentro de model model");
-exit;
-/*$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
 define('SITE_ROOT', $path);
 require(SITE_ROOT . "modules/products/model/BLL/products_bll.class.singleton.php");
 

@@ -51,20 +51,20 @@
 	        
 	        
 			/////////////////insert into BD////////////////////////
-        $arrValue = false;
+    /*    $arrValue = false;
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
         $arrValue = loadModel($path_model, "products_model", "create_user", $arrArgument);
         echo json_encode($arrValue);
-        die();
-
-/*        if ($arrValue)
+        //die();
+		exit;
+        if ($arrValue)
             $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
         else
             $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
 
-        $_SESSION['user'] = $arrArgument;
+        $_SESSION['product'] = $arrArgument;
         $_SESSION['msje'] = $mensaje;
-        $callback = "index.php?module=users&view=results_users";
+        $callback = "index.php?module=products&view=results_products";
 
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
@@ -72,14 +72,14 @@
         //exit;
 	
 	        //redirigir a otra página con los datos de $arrArgument y $mensaje
-	    /*    $_SESSION['product'] = $arrArgument;
+	        $_SESSION['product'] = $arrArgument;
 	        $_SESSION['msje'] = $mensaje;
 	        $callback = "index.php?module=products&view=results_products";
 			
 	        $jsondata["success"] = true;
 	        $jsondata["redirect"] = $callback;
 	        echo json_encode($jsondata);
-	        */
+	        
 	    } else {
 	        $jsondata["success"] = false;
 	        $jsondata["error"] = $result["error"];

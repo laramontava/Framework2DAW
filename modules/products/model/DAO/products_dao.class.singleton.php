@@ -24,15 +24,30 @@ class userDAO {
         $stock = $arrArgument['stock'];
         $category = $arrArgument['category'];
         $avatar = $arrArgument['avatar'];
-
+        
+        $horror = 0;
+        $thriller = 0;
+        $adventure = 0;
+        $drama = 0;
+        
+        foreach ($category as $indice) {
+            if ($indice === 'Informatica')
+                $horror = 1;
+            if ($indice === 'Deporte')
+                $thriller = 1;
+            if ($indice === 'Ropa')
+                $adventure = 1;
+            if ($indice === 'Música')
+                $drama = 1;
+        }
+        
+        $sql = "INSERT INTO products (id, name, description, condition1,"
+                . " datepicker1, datepicker2, price, stock, category,horror,thriller,adventure,drama, avatar"
+                . " ) VALUES ('$id', '$name', '$description', '$condition', '$datepicker1', "
+                . " '$datepicker2', '$price', '$stock', '$category', '$horror', '$thriller', '$adventure', '$drama', '$avatar')";
+        return $db->ejecutar($sql);
         }
 
-        $sql = "INSERT INTO products (id, name, description, condition,"
-                . " datepicker1, datepicker2, price, stock, category, avatar"
-                . " ) VALUES ('$id', '$name', '$description',"
-                . " '$condition', '$datepicker1', '$datepicker2', '$price', '$stock', '$category', '$avatar')";
-
-        return $db->ejecutar($sql);
     }
 
-}
+
