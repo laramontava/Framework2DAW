@@ -2,8 +2,7 @@
     function val_formproduct($product){
         $error = array();
         $valido = true;
-    //    echo json_encode($valido);
-    //    exit;
+    
         $filtro = array(
             'id' => array(
                 'filter' => FILTER_VALIDATE_REGEXP,
@@ -105,7 +104,4 @@
         
     }*/
     
-    //index.php, header.php (titulo cambia), menu.php, utils/upload.php
-    //modulo -> functionsusers.inc.php, create_users.php, 
-    // result_users.php, list_users.js, users.js, controller_users.class.php
     

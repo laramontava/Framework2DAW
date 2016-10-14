@@ -2,6 +2,7 @@
   
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/utils/upload.php");
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/modules/products/utils/functions_products.inc.php");
+	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/utils/common.inc.php");
 	session_start();
 
     ///////////////////  UPLOAD  ///////////////////
@@ -15,9 +16,6 @@
 
 	///////////////////  ALTA  ///////////////////
 	if ((isset($_POST['alta_products_json']))){
-		//echo json_encode("Hola");
-		//echo json_encode($_POST['alta_products_json']);
-		//exit;
 	    alta_products();
 	}
 
@@ -50,18 +48,38 @@
 	            'category' => $result['datos']['category'],
 	            'avatar' => $result_avatar['datos']
 	        );
-			
-	        $mensaje = "Product has been successfully registered";
+	        
+	        
+			/////////////////insert into BD////////////////////////
+        $arrValue = false;
+        $path_model = $_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
+        $arrValue = loadModel($path_model, "products_model", "create_user", $arrArgument);
+        echo json_encode($arrValue);
+        die();
+
+/*        if ($arrValue)
+            $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
+        else
+            $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
+
+        $_SESSION['user'] = $arrArgument;
+        $_SESSION['msje'] = $mensaje;
+        $callback = "index.php?module=users&view=results_users";
+
+        $jsondata["success"] = true;
+        $jsondata["redirect"] = $callback;
+        echo json_encode($jsondata);*/
+        //exit;
 	
 	        //redirigir a otra página con los datos de $arrArgument y $mensaje
-	        $_SESSION['product'] = $arrArgument;
+	    /*    $_SESSION['product'] = $arrArgument;
 	        $_SESSION['msje'] = $mensaje;
 	        $callback = "index.php?module=products&view=results_products";
 			
 	        $jsondata["success"] = true;
 	        $jsondata["redirect"] = $callback;
 	        echo json_encode($jsondata);
-	        
+	        */
 	    } else {
 	        $jsondata["success"] = false;
 	        $jsondata["error"] = $result["error"];
@@ -72,7 +90,7 @@
 	            $jsondata["img_avatar"] = $result_avatar['datos'];
 	        }
 	        echo json_encode($jsondata);
-	        header('HTTP/1.0 400 Bad error');
+	       // header('HTTP/1.0 400 Bad error');
 	        
 	    }
 	}
