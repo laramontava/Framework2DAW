@@ -61,6 +61,7 @@ function upload_files() {
             $idUnico = rand();
             $nombreFichero = $idUnico."-".$_FILES['file']['name'];
             $copiarFichero = true;
+            $_SESSION['nombre_fichero']=$nombreFichero;
             // I use absolute route to move_uploaded_file because this happens when i run ajax
             $upfile = $_SERVER['DOCUMENT_ROOT'].'/Framework/media/'.$nombreFichero;
         }else{
@@ -90,8 +91,8 @@ function upload_files() {
 
 function remove_files(){
     $name = $_POST["filename"];
-	if(file_exists($_SERVER['DOCUMENT_ROOT'].'/Framework/media/'.$name)){
-		unlink($_SERVER['DOCUMENT_ROOT'].'/Framework/media/'.$name);
+	if(file_exists($_SERVER['DOCUMENT_ROOT'].'/Framework/media/'./*$name*/$_SESSION['nombre_fichero'])){
+		unlink($_SERVER['DOCUMENT_ROOT'].'/Framework/media/'./*$name*/$_SESSION['nombre_fichero']);
 		return true;
 	}else{
 	    return json_encode("remove_files");

@@ -62,9 +62,6 @@
         else
             $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
             
-		echo json_encode("asdf" . $mensaje);
-        exit;
-		
 		
         $_SESSION['product'] = $arrArgument;
         $_SESSION['msje'] = $mensaje;
@@ -73,17 +70,7 @@
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
         echo json_encode($jsondata);
-        //exit;
-	
-	        //redirigir a otra página con los datos de $arrArgument y $mensaje
-	    /*    $_SESSION['product'] = $arrArgument;
-	        $_SESSION['msje'] = $mensaje;
-	        $callback = "index.php?module=products&view=results_products";
-			
-	        $jsondata["success"] = true;
-	        $jsondata["redirect"] = $callback;
-	        echo json_encode($jsondata);
-	        */
+        
 	    } else {
 	        $jsondata["success"] = false;
 	        $jsondata["error"] = $result["error"];
