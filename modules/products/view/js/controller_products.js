@@ -332,13 +332,14 @@ function validate_product(){
             
             if (response.success) {
                 window.location.href = response.redirect;
+                
             }
             
         }, "json").fail(function (xhr){
             
             console.log("fail");
             
-/*            if (xhr.responseJSON.error.id)
+            if (xhr.responseJSON.error.id)
                 $("#e_id").focus().after("<span class='error1'>" + xhr.responseJSON.error.id + "</span>");
             if (xhr.responseJSON.error.name)
                 $("#e_name").focus().after("<span  class='error1'>" + xhr.responseJSON.error.name + "</span>");
@@ -365,7 +366,7 @@ function validate_product(){
                 $("#progress").hide();
                 $('.msg').text('').removeClass('msg_ok');
                 $('.msg').text('Error Upload image!!').addClass('msg_error').animate({'right': '300px'}, 300);
-            }*/
+            }
             
             });
         } /////  END result

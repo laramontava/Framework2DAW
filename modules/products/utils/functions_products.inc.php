@@ -10,11 +10,11 @@
                 ),
             'name' => array(
                 'filter' => FILTER_VALIDATE_REGEXP,
-                'options' => array('regexp' => '/^[A-Z,a-z]{2,30}$/')
+                'options' => array('regexp' => '/^([A-Za-z ñáéíóú]{2,30})$/')
                 ),
             'description' => array(
                 'filter' => FILTER_VALIDATE_REGEXP,
-                'options' => array('regexp' => '/^[A-Z,a-z 1-9]{2,300}$/')
+                'options' => array('regexp' => '/^([A-Za-z ñáéíóú1-9.,;:"]{2,300})$/')
                 ),
             'datepicker1' => array(
                 'filter' => FILTER_VALIDATE_REGEXP,
@@ -41,13 +41,11 @@
         $resultado['datepicker1'] = $product['datepicker1'];
         $resultado['datepicker2'] = $product['datepicker2'];
         
-/*        if($resultado['datepicker1'] && $resultado['datepicker2']){
-            $val = validate_date($_POST['datepicker1'], $_POST['datepicker2']);
-            if(!$val){
-                $error['datepicker2'] = 'Error datepicker2';
-                $valido = false;
-            }
-        }*/
+        $dates = validate_dates($resultado['datepicker1'], $resultado['datepicker2']);
+        if (!$dates) {
+            $error['datepicker2'] = "Error date";
+            $valido = false;
+        }
         
         if(count($resultado['category']) <= 1){
             $error['category']='You have to choose 2 categories';
@@ -88,20 +86,18 @@
         
     }
     
- /*   function validate_date($firstdate, $seconddate){
-        $day_f = substr($firstdate,0,2);
-        $month_f = substr($firstdate,3,2);
-        $year_f = substr($firstdate,6,4);
-        $day_s = substr($firstdate,0,2);
-        $month_s = substr($firstdate,3,2);
-        $year_s = substr($firstdate,6,4);
-        
-        if(strtotime($day_f . "-" . $month_f . "-" . $year_f) <= strtotime($day_f . "-" . $month_f . "-" . $year_f)){
-            
-            $valido = true;
+    function validate_dates($datepicker1, $datepicker2) {
+        $day1 = substr($datepicker1, 0, 2);
+        $month1 = substr($datepicker1, 3, 2);
+        $year1 = substr($datepicker1, 6, 4);
+        $day2 = substr($datepicker2, 0, 2);
+        $month2 = substr($datepicker2, 3, 2);
+        $year2 = substr($datepicker2, 6, 4);
+
+        if (strtotime($day1 . "-" . $month1 . "-" . $year1) <= strtotime($year2 . "-" . $month2 . "-" . $day2)) {
+            return true;
         }
-        $valido = false;
-        
-    }*/
+        return false;
+    }
     
     

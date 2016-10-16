@@ -55,7 +55,6 @@
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
        
         $arrValue = loadModel($path_model, "products_model", "create_products", $arrArgument);
-        
 
         if ($arrValue)
             $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
