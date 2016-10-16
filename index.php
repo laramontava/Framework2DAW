@@ -1,6 +1,7 @@
 <?php
     require_once('view/inc/header.html');
     include 'utils/utils.inc.php';
+    $_SESSION['result_avatar'] = array();
     session_start();
     ?>
     <div id="wrapper">

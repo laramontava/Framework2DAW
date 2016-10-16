@@ -125,7 +125,7 @@
 	}
 		
 		
-		
+	///////////////////  LOAD DATA  ///////////////////	
 	if ((isset($_GET["load_data"])) && ($_GET["load_data"] == true)) {
     	$jsondata = array();
 
