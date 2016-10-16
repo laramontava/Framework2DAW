@@ -1,16 +1,15 @@
 <?php
-  
+	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/utils/upload.php");
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/modules/products/utils/functions_products.inc.php");
 	include ($_SERVER['DOCUMENT_ROOT'] . "/Framework/utils/common.inc.php");
-	session_start();
-
+	
     ///////////////////  UPLOAD  ///////////////////
 	if((isset($_GET["upload"])) && ($_GET["upload"] == true)){
 			   
 	    $result_avatar = upload_files();
 	    $_SESSION['result_avatar'] = $result_avatar;
-		echo json_encode($result_avatar);
+		//echo json_encode($result_avatar);
     	//exit;
 	}
 
@@ -48,38 +47,43 @@
 	            'category' => $result['datos']['category'],
 	            'avatar' => $result_avatar['datos']
 	        );
-	        
+	   
 	        
 			/////////////////insert into BD////////////////////////
-    /*    $arrValue = false;
+        $arrValue = false;
+         
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
-        $arrValue = loadModel($path_model, "products_model", "create_user", $arrArgument);
-        echo json_encode($arrValue);
-        //die();
-		exit;
+       
+        $arrValue = loadModel($path_model, "products_model", "create_products", $arrArgument);
+        
+
         if ($arrValue)
             $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
         else
             $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
-
+            
+		echo json_encode("asdf" . $mensaje);
+        exit;
+		
+		
         $_SESSION['product'] = $arrArgument;
         $_SESSION['msje'] = $mensaje;
         $callback = "index.php?module=products&view=results_products";
 
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
-        echo json_encode($jsondata);*/
+        echo json_encode($jsondata);
         //exit;
 	
 	        //redirigir a otra página con los datos de $arrArgument y $mensaje
-	        $_SESSION['product'] = $arrArgument;
+	    /*    $_SESSION['product'] = $arrArgument;
 	        $_SESSION['msje'] = $mensaje;
 	        $callback = "index.php?module=products&view=results_products";
 			
 	        $jsondata["success"] = true;
 	        $jsondata["redirect"] = $callback;
 	        echo json_encode($jsondata);
-	        
+	        */
 	    } else {
 	        $jsondata["success"] = false;
 	        $jsondata["error"] = $result["error"];
@@ -90,18 +94,23 @@
 	            $jsondata["img_avatar"] = $result_avatar['datos'];
 	        }
 	        echo json_encode($jsondata);
-	       // header('HTTP/1.0 400 Bad error');
-	        
+	    	header('HTTP/1.0 400 Bad error');
 	    }
 	}
 
 
       ///////////////////  DELETE  ///////////////////
       if ((isset($_GET["delete"])) && ($_GET["delete"] == true)) {
-            $result = remove_files();
-			
-        	echo json_encode($result);
+         //   $result = remove_files();
+        //	echo json_encode($result);
         //	exit;
+        $_SESSION['result_avatar'] = array();
+    	$result = remove_files();
+    	if ($result === true) {
+        	echo json_encode(array("res" => true));
+    	} else {
+	        echo json_encode(array("res" => false));
+    	}
            
       }
 

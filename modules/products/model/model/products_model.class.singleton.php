@@ -3,13 +3,13 @@ $path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
 define('SITE_ROOT', $path);
 require(SITE_ROOT . "modules/products/model/BLL/products_bll.class.singleton.php");
 
-class user_model {
+class products_model {
 
     private $bll;
     static $_instance;
 
     private function __construct() {
-        $this->bll = user_bll::getInstance();
+        $this->bll = products_bll::getInstance();
     }
 
     public static function getInstance() {
@@ -18,8 +18,8 @@ class user_model {
         return self::$_instance;
     }
 
-    public function create_user($arrArgument) {
-        return $this->bll->create_user_BLL($arrArgument);
+    public function create_products($arrArgument) {
+        return $this->bll->create_products_BLL($arrArgument);
     }
 
 }

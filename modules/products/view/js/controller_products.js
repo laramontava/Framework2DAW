@@ -1,5 +1,3 @@
-//upload, delete, load_data, alta
-
 jQuery.fn.fill_or_clean = function () {
     this.each(function () {
         if ($("#id").val() === "") {
@@ -323,11 +321,9 @@ function validate_product(){
             "price":price,
             "stock":stock,
             "category":category
-            //"accept":accept
         };
         
         var data_products_JSON = JSON.stringify(data);
-        //console.log(data_products_JSON + " Console log de controller products JS");
 
         $.post('modules/products/controller/controller_products.class.php',
             {alta_products_json: data_products_JSON},
@@ -335,10 +331,7 @@ function validate_product(){
             console.log(response);
             
             if (response.success) {
-                console.log("en response success");
                 window.location.href = response.redirect;
-                //console.log(redirect1);
-                
             }
             
         }, "json").fail(function (xhr){

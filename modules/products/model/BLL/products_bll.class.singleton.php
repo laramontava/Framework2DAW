@@ -6,14 +6,14 @@ define('MODEL_PATH', SITE_ROOT . 'model/');
 require (MODEL_PATH . "Db.class.singleton.php");
 require(SITE_ROOT . "modules/products/model/DAO/products_dao.class.singleton.php");
 
-class user_bll {
+class products_bll {
 
     private $dao;
     private $db;
     static $_instance;
 
     private function __construct() {
-        $this->dao = userDAO::getInstance();
+        $this->dao = productsDAO::getInstance();
         $this->db = Db::getInstance();
     }
 
@@ -23,8 +23,8 @@ class user_bll {
         return self::$_instance;
     }
 
-    public function create_user_BLL($arrArgument) {
-        return $this->dao->create_user_DAO($this->db, $arrArgument);
+    public function create_products_BLL($arrArgument) {
+        return $this->dao->create_products_DAO($this->db, $arrArgument);
     }
 
 }
