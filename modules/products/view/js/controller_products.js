@@ -209,7 +209,156 @@ $(document).ready(function () {
            return false;
        }
     });
-}); //   END ready
+    //////////  COMBOBOX COUNTRIES ///////////
+    load_countries_v1();
+    $("#provincia").empty();
+    $("#provincia").append('<option value="" selected="selected">Selecciona una Provincia</option>');
+    $("#provincia").prop('disabled', true);
+    $("#poblacion").empty();
+    $("#poblacion").append('<option value="" selected="selected">Selecciona una Poblacion</option>');
+    $("#poblacion").prop('disabled', true);
+
+    $("#pais").change(function() {
+        var pais = $(this).val();
+        var provincia = $("#provincia");
+        var poblacion = $("#poblacion");
+
+        if(pais !== 'ES'){
+            provincia.prop('disabled', true);
+            poblacion.prop('disabled', true);
+            $("#provincia").empty();
+            $("#poblacion").empty();
+        }else{
+            provincia.prop('disabled', false);
+            poblacion.prop('disabled', false);
+            load_provincias_v1();
+        }//fi else
+    });
+
+    $("#provincia").change(function() {
+        var prov = $(this).val();
+        if(prov > 0){
+            load_poblaciones_v1(prov);
+        }else{
+            $("#poblacion").prop('disabled', false);
+        }
+    });
+});//   END ready
+
+function load_countries_v2(cad) {
+    $.getJSON( cad, function(data) {
+      $("#pais").empty();
+      $("#pais").append('<option value="" selected="selected">Selecciona un Pais</option>');
+      
+      $.each(data, function (i, valor) {
+        $("#pais").append("<option value='" + valor.sISOCode + "'>" + valor.sName + "</option>");
+      });
+    })
+    .fail(function() {
+        alert( "error load_countries" );
+    });
+}
+
+function load_countries_v1() {
+    $.get( "modules/products/controller/controller_products.class.php?load_pais=true",
+        function( response ) {
+            //console.log(response);
+            if(response === 'error'){
+                load_countries_v2("resources/ListOfCountryNamesByName.json");
+            }else{
+                load_countries_v2("modules/products/controller/controller_products.class.php?load_pais=true"); //oorsprong.org
+            }
+    })
+    .fail(function(response) {
+        load_countries_v2("resources/ListOfCountryNamesByName.json");
+    });
+}
+
+function load_provincias_v2() {
+    $.get("resources/provinciasypoblaciones.xml", function (xml) {
+	    $("#provincia").empty();
+	    $("#provincia").append('<option value="" selected="selected">Selecciona una Provincia</option>');
+	            
+        $(xml).find("provincia").each(function () {
+            var id = $(this).attr('id');
+            var nombre = $(this).find('nombre').text();
+            $("#provincia").append("<option value='" + id + "'>" + nombre + "</option>");
+        });
+    })
+    .fail(function() {
+        alert( "error load_provincias" );
+    });
+}
+
+function load_provincias_v1() { //provinciasypoblaciones.xml - xpath
+   $.get( "modules/products/controller/controller_products.class.php?load_provincias=true", 
+        function( response ) {
+            $("#provincia").empty();
+	        $("#provincia").append('<option value="" selected="selected">Selecciona una Provincia</option>');
+	    
+            //alert(response);
+            var json = JSON.parse(response);
+		    var provincias=json.provincias;
+		    //alert(provincias);
+		    //console.log(provincias);
+
+		    //alert(provincias[0].id);
+		    //alert(provincias[0].nombre);
+    		
+            if(provincias === 'error'){
+                load_provincias_v2();
+            }else{
+                for (var i = 0; i < provincias.length; i++) { 
+        		    $("#provincia").append("<option value='" + provincias[i].id + "'>" + provincias[i].nombre + "</option>");
+    		    }
+            }
+    })
+    .fail(function(response) {
+        load_provincias_v2();
+    });
+}
+
+function load_poblaciones_v2(prov) {
+    $.get("resources/provinciasypoblaciones.xml", function (xml) {
+		$("#poblacion").empty();
+	    $("#poblacion").append('<option value="" selected="selected">Selecciona una Poblacion</option>');
+			    
+		$(xml).find('provincia[id=' + prov + ']').each(function(){
+    		$(this).find('localidad').each(function(){
+    			 $("#poblacion").append("<option value='" + $(this).text() + "'>" + $(this).text() + "</option>");
+    		});  
+        });
+	})
+	.fail(function() {
+        alert( "error load_poblaciones" );
+    });
+}
+
+function load_poblaciones_v1(prov) { //provinciasypoblaciones.xml - xpath
+    var datos = { idPoblac : prov  };
+	$.post("modules/products/controller/controller_products.class.php", datos, function(response) {
+	    //alert(response);
+        var json = JSON.parse(response);
+		var poblaciones=json.poblaciones;
+		//alert(poblaciones);
+		//console.log(poblaciones);
+		//alert(poblaciones[0].poblacion);
+
+		$("#poblacion").empty();
+	    $("#poblacion").append('<option value="" selected="selected">Selecciona una Poblacion</option>');
+
+        if(poblaciones === 'error'){
+            load_poblaciones_v2(prov);
+        }else{
+            for (var i = 0; i < poblaciones.length; i++) { 
+        		$("#poblacion").append("<option value='" + poblaciones[i].poblacion + "'>" + poblaciones[i].poblacion + "</option>");
+    		}
+        }
+	})
+	.fail(function() {
+        load_poblaciones_v2(prov);
+    });
+}
 
 function validate_product(){
 
@@ -224,6 +373,9 @@ function validate_product(){
     var datepicker2 = document.getElementById('datepicker2').value;
     var price = document.getElementById('price').value;
     var stock = document.getElementById('stock').value;
+    var pais = document.getElementById('pais').value;
+    console.log("asdasdasdasd");
+    console.log(document.getElementById('pais').value);
     var category = [];
     var inputElements = document.getElementsByClassName('messageCheckbox');
     var j = 0;
@@ -240,7 +392,6 @@ function validate_product(){
     var string_regexpr = /^[A-Z,a-z]{2,30}$/;
     var date_regexpr = /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[/\\/](19|20)\d{2}$/;
     var int_regexpr = /^[1-9]{1,10}$/;
-
 
     $(".error").remove();
     if ($("#id").val() === "" || $("#id").val() === "Introduce product ID") {
@@ -308,6 +459,12 @@ function validate_product(){
         result = false;
         return false;
     }
+    if($("#pais").val() === "" || $("#pais").val() === "Selecciona un Pais" || $("#pais").val().length == 0) {
+        $("#pais").focus().after("<span class='error'>Select a country</span>");
+        result = false;
+        return false;
+    }
+    
 
     // Todo correcto
     if(result){

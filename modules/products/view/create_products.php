@@ -17,73 +17,97 @@
     <!--/.HEADING END -->
     <br>
     <form id="form_products" name="form_products">
-
+        <fieldset class="fieldform">
           <div class="form-group">
-            <label for="id">Product ID:</label>
+            <label for="id" class="name_input">Product ID:</label>
             <input class="form-control" name="id" placeholder="Introduce product ID" type="text" id="id" value="">
             <div id="e_id"></div>
           </div>
 
           <div class="form-group">
-            <label for="name">Product name:</label>
+            <label for="name" class="name_input">Product name:</label>
             <input class="form-control" name="name" placeholder="Introduce product name" type="text" id="name" value="">
             <div id="e_name"></div>
           </div>
 
           <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea class="form-control" name="description" placeholder="Description" type="text" id="description"
+            <label for="description" class="name_input">Description:</label>
+            <textarea class="form-control" name="description" placeholder="Introduce product description" type="text" id="description"
             value=""></textarea>
             <div id="e_description"></div>
           </div>
 
           <div class="form-group">
-            <label for="condition">Condition</label>
-            <select name="condition" id="condition">
-                <option value="New">New</option>
-                <option value="Used">Second hand</option>
-            </select>
+            <label for="condition" class="name_input">Condition</label>
+            <div class="select_style">
+              <select name="condition" id="condition">
+                  <option value="New">New</option>
+                  <option value="Used">Second hand</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">
-              <label for="date1">Date:</label>
-              <input class="form-control" id="datepicker1" type="text" name="datepicker1" value = "">
+              <label for="date1" class="name_input">Date:</label>
+              <input class="form-control" id="datepicker1" type="text" name="datepicker1" placeholder="Introduce date" value = "">
               <div id="e_datepicker1"></div>
           </div>
 
           <div class="form-group">
-              <label for="date2">Refund date:</label>
-              <input class="form-control" id="datepicker2" type="text" name="datepicker2" value = "">
+              <label for="date2" class="name_input">Refund date:</label>
+              <input class="form-control" id="datepicker2" type="text" name="datepicker2" placeholder="Introduce refund date" value = "">
               <div id="e_datepicker2"></div>
           </div>
 
           <div class="form-group">
-            <label for="price">Rate:</label>
-            <input class="form-control" name="price" placeholder="Price" type="text" id="price" value="">
+            <label for="price" class="name_input">Rate:</label>
+            <input class="form-control" name="price" placeholder="Introduce product rate" type="text" id="price" value="">
             <div id="e_price"></div>
           </div>
 
           <div class="form-group">
-            <label for="stock">Stock:</label>
-            <input class="form-control" name="stock" placeholder="Stock" type="text" id="stock" value="">
+            <label for="stock" class="name_input">Stock:</label>
+            <input class="form-control" name="stock" placeholder="How many products do you have?" type="text" id="stock" value="">
             <div id="e_stock"></div>
           </div>
 
-          <div class="form-group"> <br>
-            <label for="category">Category:</label><br>
-            <input type="checkbox" name="category[]" class="messageCheckbox" value="Informatica"> Informática <br>
-					  <input type="checkbox" name="category[]" class="messageCheckbox" value="Deporte"> Deporte <br>
-					  <input type="checkbox" name="category[]" class="messageCheckbox" value="Ropa"> Ropa <br>
-					  <input type="checkbox" name="category[]" class="messageCheckbox" value="Música"> Música <br>
+          <div class="form-group">
+            <label for="category" class="name_input">Category:</label><br>
+            <div>
+              <input type="checkbox" name="category[]" class="messageCheckbox" value="Informatica"> <label>Informática</label> <br>
+            </div>
+            <div>
+					    <input type="checkbox" name="category[]" class="messageCheckbox" value="Deporte"> <label>Deporte</label> <br>
+					  </div>
+					  <div>
+					    <input type="checkbox" name="category[]" class="messageCheckbox" value="Ropa"> <label>Ropa</label> <br>
+					  </div>
+					  <div>
+					    <input type="checkbox" name="category[]" class="messageCheckbox" value="Música"> <label>Música</label> <br>
+					  </div>
 					  <div id="e_category"></div>
           </div>
-
-        <!--  <div class="form-group">
-            <label for="accept">Admitir pedidos:</label><br>
-            <input class="accept" name="accept" type="radio" value="Accept" checked> Permitir pedidos <br>
-				    <input class="accept" name="accept" type="radio" value="Deny"> Denegar pedidos <br>
-          </div>-->
-
+          <div class="form-group">
+            <p>
+        			<label for="pais">Pais</label>
+        			<select id="pais">
+        			</select>
+        			<span id="e_pais" class="styerror"></span>
+        		</p>
+        		<p>
+        			<label for="provincia">Provincia</label>
+        			<select id="provincia">
+        			</select>
+        			<span id="e_provincia" class="styerror"></span>
+        		</p>
+        		<p>
+        			<label for="poblacion">Poblacion</label>
+        			<select id="poblacion">
+        			</select>
+        			<span id="e_poblacion" class="styerror"></span>
+        		</p>
+          </div>
+        
           <div class="form-group" id="progress">
             <div id="bar"></div>
             <div id="percent">0%</div >
@@ -93,8 +117,8 @@
           <div id="dropzone" class="dropzone"></div><br/>
 
           <div class="form-group">
-            <button type="button" id="submit_products" name="submit_products">Enviar</button>
+            <button type="button" id="submit_products" name="submit_products" class="button">Enviar</button>
           </div>
 
-
+          </fieldset>
         </form>

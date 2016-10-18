@@ -45,6 +45,9 @@
 	            'price' => $result['datos']['price'],
 	            'stock' => $result['datos']['stock'],
 	            'category' => $result['datos']['category'],
+	            'pais' => strtoupper($result['datos']['pais']),
+				'provincia' => strtoupper($result['datos']['provincia']),
+				'poblacion' => strtoupper($result['datos']['poblacion']),
 	            'avatar' => $result_avatar['datos']
 	        );
 	   
@@ -55,11 +58,11 @@
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
        
         $arrValue = loadModel($path_model, "products_model", "create_products", $arrArgument);
-
-        if ($arrValue)
-            $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
+		
+        if ($arrValue)	
+            $mensaje = "The product has been saved.";
         else
-            $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
+            $mensaje = "An error occurred.";
             
 		
         $_SESSION['product'] = $arrArgument;
@@ -129,13 +132,72 @@
 	if ((isset($_GET["load_data"])) && ($_GET["load_data"] == true)) {
     	$jsondata = array();
 
-    if (isset($_SESSION['product'])) {
-        $jsondata["product"] = $_SESSION['product'];
-        echo json_encode($jsondata);
-        exit;
-    } else {
-        $jsondata["product"] = "";
-        echo json_encode($jsondata);
-        exit;
-    }
-}
+	    if (isset($_SESSION['product'])) {
+	        $jsondata["product"] = $_SESSION['product'];
+	        echo json_encode($jsondata);
+	        exit;
+	    } else {
+	        $jsondata["product"] = "";
+	        echo json_encode($jsondata);
+	        exit;
+	    }
+	}
+
+	/////////////////////////   LOAD PAIS   //////////////////////////
+	if(  (isset($_GET["load_pais"])) && ($_GET["load_pais"] == true)  ){
+		$json = array();
+		
+    	$url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
+    	
+		$path_model=$_SERVER['DOCUMENT_ROOT'].'/Framework/modules/products/model/model/';
+		$json = loadModel($path_model, "products_model", "obtain_paises", $url);
+		
+		if($json){
+			echo $json;
+			exit;
+		}else{
+			$json = "error";
+			echo $json;
+			exit;
+		}
+	}
+	
+	/////////////////////////////////////////////////// load_provincias
+	if(  (isset($_GET["load_provincias"])) && ($_GET["load_provincias"] == true)  ){
+		$jsondata = array();
+        $json = array();
+	
+		$path_model=$_SERVER['DOCUMENT_ROOT'].'/Framework/modules/products/model/model/';
+		
+		$json = loadModel($path_model, "products_model", "obtain_provincias");
+		//echo json_encode($json);
+		//exit;
+		if($json){
+			$jsondata["provincias"] = $json;
+			echo json_encode($jsondata);
+			exit;
+		}else{
+			$jsondata["provincias"] = "error";
+			echo json_encode($jsondata);
+			exit;
+		}
+	}
+	
+	/////////////////////////////////////////////////// load_poblaciones
+	if(isset($_POST['idPoblac']) ){
+	    $jsondata = array();
+        $json = array();
+	
+		$path_model=$_SERVER['DOCUMENT_ROOT'].'/Framework/modules/products/model/model/';
+		$json = loadModel($path_model, "products_model", "obtain_poblaciones", $_POST['idPoblac']);
+	
+		if($json){
+			$jsondata["poblaciones"] = $json;
+			echo json_encode($jsondata);
+			exit;
+		}else{
+			$jsondata["poblaciones"] = "error";
+			echo json_encode($jsondata);
+			exit;
+		}
+	}
