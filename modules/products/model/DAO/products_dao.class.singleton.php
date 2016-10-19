@@ -23,6 +23,9 @@ class productsDAO {
         $price = $arrArgument['price'];
         $stock = $arrArgument['stock'];
         $category = $arrArgument['category'];
+        $pais = $arrArgument['pais'];
+        $provincia = $arrArgument['provincia'];
+        $poblacion = $arrArgument['poblacion'];
         $avatar = $arrArgument['avatar'];
         
         $horror = 0;
@@ -40,9 +43,9 @@ class productsDAO {
             if ($indice === 'Música')
                 $drama = 1;
         }
-        $sql = "INSERT INTO products (id, name, description, condition1, datepicker1, datepicker2, price, stock, category, horror, thriller, adventure, drama, avatar) VALUES ('". $id
+        $sql = "INSERT INTO products (id, name, description, condition1, datepicker1, datepicker2, price, stock, category, horror, thriller, adventure, drama, pais, provincia, poblacion, avatar) VALUES ('". $id
         ."', '". $name ."', '". $description ."', '". $condition ."' , '". $datepicker1 ."', '". $datepicker2
-        ."', '". $price ."', '". $stock ."','". $category ."', '". $horror ."' ,'". $thriller ."', '". $adventure ."', '". $drama ."', '". $avatar ."')";
+        ."', '". $price ."', '". $stock ."','". $category ."', '". $horror ."' ,'". $thriller ."', '". $adventure ."', '". $drama ."', '". $pais ."', '". $provincia ."', '". $poblacion ."', '". $avatar ."')";
         return $db->ejecutar($sql);
      
         }

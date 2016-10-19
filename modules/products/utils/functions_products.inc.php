@@ -40,6 +40,9 @@
         $resultado['condition'] = $product['condition'];
         $resultado['datepicker1'] = $product['datepicker1'];
         $resultado['datepicker2'] = $product['datepicker2'];
+        $resultado['pais'] = $product['pais'];
+        $resultado['provincia'] = $product['provincia'];
+        $resultado['poblacion'] = $product['poblacion'];
         
         $dates = validate_dates($resultado['datepicker1'], $resultado['datepicker2']);
         if (!$dates) {
@@ -50,6 +53,11 @@
         if(count($resultado['category']) <= 1){
             $error['category']='You have to choose 2 categories';
             $valido = false;
+        }
+        
+        if($resultado['pais'] != 'ES'){
+            $resultado[provincia] = 'default_provincia';
+            $resultado[poblacion] = 'default_poblacion';
         }
         
         if($resultado != null && $resultado){

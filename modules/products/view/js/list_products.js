@@ -69,6 +69,18 @@ function pintar_product(data) {
     category.innerHTML = "category = ";
     category.innerHTML += data.product.category;
     
+    var pais = document.createElement("div");
+    pais.innerHTML = "pais = ";
+    pais.innerHTML += data.product.pais;
+    
+    var provincia = document.createElement("div");
+    provincia.innerHTML = "provincia = ";
+    provincia.innerHTML += data.product.provincia;
+    
+    var poblacion = document.createElement("div");
+    poblacion.innerHTML = "poblacion = ";
+    poblacion.innerHTML += data.product.poblacion;
+    
     var cad = data.avatar.datos;
     
     var img = document.createElement("div");
@@ -87,6 +99,9 @@ function pintar_product(data) {
     parrafo.appendChild(price);
     parrafo.appendChild(stock);
     parrafo.appendChild(category);
+    parrafo.appendChild(pais);
+    parrafo.appendChild(provincia);
+    parrafo.appendChild(poblacion);
     content.appendChild(div_product);
     content.appendChild(img);
 }

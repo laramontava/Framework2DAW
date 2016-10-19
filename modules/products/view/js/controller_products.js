@@ -209,6 +209,24 @@ $(document).ready(function () {
            return false;
        }
     });
+    $("#pais").keyup(function() {
+        if($(this).val() == "" || $(this).val() == "Selecciona un Pais"){
+            $(".error").fadeOut();
+           return false;
+        }
+    });
+    $("#provincia").keyup(function() {
+        if($(this).val() == "Selecciona una Provincia"){
+            $(".error").fadeOut();
+           return false;
+        }
+    });
+    $("#poblacion").keyup(function() {
+        if($(this).val() == "Selecciona una Poblacion"){
+            $(".error").fadeOut();
+           return false;
+        }
+    });
     //////////  COMBOBOX COUNTRIES ///////////
     load_countries_v1();
     $("#provincia").empty();
@@ -374,8 +392,8 @@ function validate_product(){
     var price = document.getElementById('price').value;
     var stock = document.getElementById('stock').value;
     var pais = document.getElementById('pais').value;
-    console.log("asdasdasdasd");
-    console.log(document.getElementById('pais').value);
+    var provincia = document.getElementById('provincia').value;
+    var poblacion = document.getElementById('poblacion').value;
     var category = [];
     var inputElements = document.getElementsByClassName('messageCheckbox');
     var j = 0;
@@ -421,7 +439,7 @@ function validate_product(){
     }
 
     if($("#datepicker1").val() === "" || $("#datepicker1").val() === "Introduce a date") {
-        $("#datepicker1").focus().after("<span class='error'>Introduce product name</span>");
+        $("#datepicker1").focus().after("<span class='error'>Introduce product date</span>");
         result = false;
         return false;
     } else if (!date_regexpr.test($("#datepicker1").val())){
@@ -431,7 +449,7 @@ function validate_product(){
     }
 
     if($("#datepicker2").val() === "" || $("#datepicker2").val() === "Introduce a refund date") {
-        $("#datepicker2").focus().after("<span class='error'>Introduce product name</span>");
+        $("#datepicker2").focus().after("<span class='error'>Introduce product refund date</span>");
         result = false;
         return false;
     } else if (!date_regexpr.test($("#datepicker2").val())){
@@ -464,6 +482,41 @@ function validate_product(){
         result = false;
         return false;
     }
+    /*if($("#provincia").val() == null || $("#provincia").val().length == 0) {
+        console.log("provincia no tiene");
+        return 'default_provincia';
+    }else if($("#provincia").val() === "Selecciona una Provincia"){
+        console.log("seleccionar provincia aparece");
+        $("#provincia").focus().after("<span class='error'>Select a provincia</span>");
+        result = false;
+        return false;
+    }*/
+    if($("#pais").val() != "ES"  && ($("#provincia").val() == null || $("#provincia").val().length == 0)){
+        //return 'default_provincia';
+    }else if($("#pais").val() != "ES"  && $("#provincia").val() == "Selecciona una Provincia"){
+        $("#provincia").focus().after("<span class='error'>Error</span>");
+        result = false;
+        return false;
+    }else if($("#pais").val() == "ES"  && ($("#provincia").val() == null || $("#provincia").val().length == 0 
+    || $("#provincia").val() === "Selecciona una Provincia")){
+        $("#provincia").focus().after("<span class='error'>Select a provincia</span>");
+        result = false;
+        return false;
+    }
+    
+    if($("#pais").val() != "ES"  && ($("#poblacion").val() == null || $("#poblacion").val().length == 0)){
+        console.log($("#poblacion").val());
+        //return 'default_provincia';
+    }else if($("#pais").val() != "ES"  && $("#poblacion").val() == "Selecciona una Poblacion"){
+        $("#poblacion").focus().after("<span class='error'>Error</span>");
+        result = false;
+        return false;
+    }else if($("#pais").val() == "ES"  && ($("#poblacion").val() == null || $("#poblacion").val().length == 0 
+    || $("#poblacion").val() === "Selecciona una Poblacion")){
+        $("#poblacion").focus().after("<span class='error'>Select a poblacion</span>");
+        result = false;
+        return false;
+    }
     
 
     // Todo correcto
@@ -477,7 +530,10 @@ function validate_product(){
             "datepicker2":datepicker2,
             "price":price,
             "stock":stock,
-            "category":category
+            "category":category,
+            "pais":pais,
+            "provincia":provincia,
+            "poblacion":poblacion
         };
         
         var data_products_JSON = JSON.stringify(data);

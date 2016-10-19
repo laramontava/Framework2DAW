@@ -39,8 +39,8 @@
 
           <div class="form-group">
             <label for="condition" class="name_input">Condition</label>
-            <div class="select_style">
-              <select name="condition" id="condition">
+            <div>
+              <select name="condition" id="condition" class="select_style">
                   <option value="New">New</option>
                   <option value="Used">Second hand</option>
               </select>
@@ -89,22 +89,22 @@
           </div>
           <div class="form-group">
             <p>
-        			<label for="pais">Pais</label>
-        			<select id="pais">
+        			<label for="pais" class="name_input">Pais</label>
+        			<select id="pais" class="select_style">
         			</select>
-        			<span id="e_pais" class="styerror"></span>
+        			<div id="e_pais" class="styerror"></div>
         		</p>
         		<p>
-        			<label for="provincia">Provincia</label>
-        			<select id="provincia">
+        			<label for="provincia" class="name_input">Provincia</label>
+        			<select id="provincia" class="select_style">
         			</select>
-        			<span id="e_provincia" class="styerror"></span>
+        			<div id="e_provincia" class="styerror"></div>
         		</p>
         		<p>
-        			<label for="poblacion">Poblacion</label>
-        			<select id="poblacion">
+        			<label for="poblacion" class="name_input">Poblacion</label>
+        			<select id="poblacion" class="select_style">
         			</select>
-        			<span id="e_poblacion" class="styerror"></span>
+        			<div id="e_poblacion" class="styerror"></div>
         		</p>
           </div>
         

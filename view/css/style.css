@@ -14,7 +14,7 @@
  ============================================================ */
 body {
    font-family: 'Open Sans', sans-serif;
-   background-color: #f9f7f6;
+   background-color: #e2e2e2/*f9f7f6*/;
 }
 .pad-top {
     padding-top:60px;
@@ -43,7 +43,12 @@ p {
 
 /* NAVBAR STYLE */
 
-
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #0f1626;
+}
+.navbar.navbar-inverse.navbar-fixed-top{
+    background-color: #0f1626;
+}
 .navbar-inverse .navbar-nav > li > a {
 color: #FFF;
 }
@@ -51,7 +56,9 @@ color: #FFF;
 .navbar-inverse .navbar-brand {
 color: #FFF;
 }
-
+.nav.navbar-nav.navbar-right li:hover { 
+    background-color: #ff533d;
+}
 
 /* ADDED PADDING IN NAVBAR */
 
@@ -256,7 +263,7 @@ border: 1px solid #e1e1e1;
 
 
 #footer-sec {
-    background-color:#000;
+    background-color:#0f1626/*000*/;
     color:#808080;
 }
     #footer-sec h4 {
@@ -265,23 +272,59 @@ border: 1px solid #e1e1e1;
     }
 
 /*FORMULARIO*/
-.fieldform{
-    margin-left: 20%;
+
+.error{
+    background-color: #BC1010;
+    padding: 8px 10px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 16px;
+    margin-top: 6px;
+    position: absolute;
 }
+.error:before{ /* Este es un truco para crear una flechita */
+    content: '';
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #BC1010;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    left: 9px;
+    position:  absolute;
+    top: -17px;
+    
+}
+
+.select_style {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 60%;
+  color: #333;
+  
+  
+}
+
 .form-control{
     padding: 20.160px;
     width: 60%;
     border: none;
     border-radius: 0;
     background: #fff;
-    color: #aaa;
+    color: #333;
     font-weight: bold;
 }
 
 .name_input{
     width: 60%;
-    color: #6a7989;
-    background: #EFEEEE;
+    /*color: #6a7989;*/
+    color: white;
+    background: #0f1626;
+    /*background: #EFEEEE;*/
     padding: 20.160px;
 }
 
@@ -298,7 +341,7 @@ div#progress{
 }
 .button {
     position: relative;
-    background-color: #4CAF50;
+    background-color: #ff533d;
     border: none;
     font-size: 28px;
     color: #FFFFFF;
