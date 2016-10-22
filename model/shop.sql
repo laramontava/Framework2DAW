@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2016 a las 22:01:46
+-- Tiempo de generación: 22-10-2016 a las 15:19:03
 -- Versión del servidor: 5.5.49-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.16
 
@@ -40,6 +40,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `thriller` varchar(2) DEFAULT NULL,
   `adventure` varchar(2) DEFAULT NULL,
   `drama` varchar(2) DEFAULT NULL,
+  `pais` varchar(20) DEFAULT NULL,
+  `provincia` varchar(20) DEFAULT NULL,
+  `poblacion` varchar(20) DEFAULT NULL,
   `avatar` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -48,9 +51,10 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `condition1`, `datepicker1`, `datepicker2`, `price`, `stock`, `category`, `horror`, `thriller`, `adventure`, `drama`, `avatar`) VALUES
-('22222222', 'Magnitudimaginaria', 'Magnitud imaginaria, piedra de toque de la famosa "Biblioteca del Siglo XXI" y heredera de la aclamada VacÃ­o perfecto.', 'Used', '10/10/2016', '27/10/2016', '123', '123', 'Array', '0', '1', '0', '1', 'media/default-avatar.png'),
-('99999999', 'Libro', 'Un libro.', 'New', '04/10/2016', '27/10/2016', '123', '123', 'Array', '1', '1', '0', '0', 'media/default-avatar.png');
+INSERT INTO `products` (`id`, `name`, `description`, `condition1`, `datepicker1`, `datepicker2`, `price`, `stock`, `category`, `horror`, `thriller`, `adventure`, `drama`, `pais`, `provincia`, `poblacion`, `avatar`) VALUES
+('12312312', 'Prueba', 'Asd asd', 'New', '03/10/2016', '19/10/2016', '123', '123', 'Array', '1', '1', '0', '0', 'AM', 'DEFAULT_PROVINCIA', 'DEFAULT_POBLACION', 'media/default-avatar.png'),
+('12341543', 'Silla', 'Asdasd', 'Used', '03/10/2016', '29/10/2016', '1', '123', 'Array', '1', '1', '0', '0', 'ES', '23', 'ARBUNIEL', 'media/1286535115-flowers.png'),
+('32132132', 'Prueba', 'ASd', 'Used', '11/10/2016', '27/10/2016', '312', '321', 'Array', '0', '0', '1', '1', 'ES', '08', 'CALDES DE MONTBUI', 'media/1020040457-flowers.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
