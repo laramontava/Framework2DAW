@@ -30,4 +30,12 @@ class products_model {
     public function obtain_poblaciones($arrArgument) {
         return $this->bll->obtain_poblaciones_BLL($arrArgument);
     }
+    
+    public function list_products() {
+        return $this->bll->list_products_BLL();
+    }
+    
+    public function details_products($id) {
+        return $this->bll->details_products_BLL($id);
+    }
 }

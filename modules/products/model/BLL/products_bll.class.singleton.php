@@ -35,4 +35,12 @@ class products_bll {
     public function obtain_poblaciones_BLL($arrArgument) {
         return $this->dao->obtain_poblaciones_DAO($arrArgument);
     }
+    
+    public function list_products_BLL() {
+        return $this->dao->list_products_DAO($this->db);
+    }
+
+    public function details_products_BLL($id) {
+        return $this->dao->details_products_DAO($this->db,$id);
+    }
 }
