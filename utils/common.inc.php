@@ -8,7 +8,11 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '') {
     $modelClass = $model_name;
 
     if (!method_exists($modelClass, $function)){
-      die($function . ' function not found in Model ' . $model_name);
+      //die($function . ' function not found in Model ' . $model_name);
+      $message = $function . ' function not found in Model ' . $model_name;
+                $arrData = $message;
+                require_once 'view/inc/404.php';
+                die();
     }
       
     $obj = $modelClass::getInstance();
@@ -17,23 +21,27 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '') {
       return $obj->$function($arrArgument);
     }
   } else {
-    die($model_name . ' Model Not Found under Model Folder');
+    //die($model_name . ' Model Not Found under Model Folder');
+    $message = "Model Not Found under Model Folder";
+            $arrData = $message;
+            require_once 'view/inc/404.php';
+            die();
   }
 }
 
 
-function loadView($rutaVista, $templateName, $arrPassValue = '') {
-		$view_path = $rutaVista . $templateName;
-		$arrData = '';
-		if (file_exists($view_path)) {
-			if (isset($arrPassValue))
-				$arrData = $arrPassValue;
-			include_once($view_path);
-		} else {
-			//die($templateName . ' Template Not Found under View Folder');
-			$message = "NO TEMPLATE FOUND";
-			$arrData = $message;
-			require_once 'view/inc/404.php';
-			die();
-		}
-	}
+function loadView($rutaVista, $templateName, $arrPassValue = ''){
+        $view_path = $rutaVista . $templateName;
+        $arrData = '';
+        if(file_exists($view_path)){
+            if(isset($arrPassValue)){
+                $arrData = $arrPassValue;
+            }
+            include_once($view_path);
+        }else{
+          $message = "TEMPLATE NOT FOUND!";
+          $arrData = $message;
+          require_once $_SERVER['DOCUMENT_ROOT'] . '/Framework/view/inc/404.php';
+          die();
+        }
+}

@@ -72,6 +72,7 @@
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
         echo json_encode($jsondata);
+        exit;
         
 	    } else {
 	        $jsondata["success"] = false;
@@ -85,7 +86,7 @@
 	        echo json_encode($jsondata);
 	    	header('HTTP/1.0 400 Bad error');
 	    }
-	}
+	} //END ALTA PRODUCTS
 
 
       ///////////////////  DELETE  ///////////////////
@@ -203,25 +204,21 @@
 	}
 	
 	///////////////////  LOAD PRODUCTS  ///////////////////
-/*	$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
-	define('SITE_ROOT', $path);
-	if ($_GET["idProduct"]) {
-	    $id = $_GET["idProduct"];
-	    $path_model = $_SERVER['DOCUMENT_ROOT']. '/Framework/modules/products/model/model/';
-	    $arrValue = loadModel($path_model, "products_model", "details_products",$id);
-	    if ($arrValue[0]) {
-	        loadView('modules/products/view/', 'details_products.php', $arrValue[0]);
-	    } else {
-	        $message = "NOT FOUND PRODUCT";
-	        loadView('view/inc/', '404.php', $message);
+	if ($_GET['idProduct']){
+    	$id= $_GET['idProduct'];
+    	$path_model=$_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
+    	$arrValue = loadModel($path_model, 'products_model','details_products',$id);
+    	if($arrValue[0]){
+        	loadView($_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/view/', 'details_products.php', $arrValue[0]);
+    	}else{
+        	loadView($_SERVER['DOCUMENT_ROOT'] . '/Framework/view/inc', '404.php', 'PRODUCT NOT FOUND!');
+    	}
+	}else{
+    	$path_model=$_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
+	    $arrValue = loadModel($path_model, 'products_model','list_products');
+	    if($arrValue){
+	        loadView($_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/view/', 'list_products.php', $arrValue);
+	    }else{
+	        loadView($_SERVER['DOCUMENT_ROOT'] . '/Framework/view/inc', '404.php', 'PRODUCTS NOT FOUND!');
 	    }
-	} else {
-	    $path_model = $_SERVER['DOCUMENT_ROOT']. '/Framework/modules/products/model/model/';
-	    $arrValue = loadModel($path_model, "products_model", "list_products");
-	    if ($arrValue) {
-	        loadView('modules/products/view/', 'list_products.php', $arrValue);
-	    } else {
-	        $message = "NOT PRODUCTS";
-	        loadView('view/inc/', '404.php', $message);
-	    }
-	}*/
+	}

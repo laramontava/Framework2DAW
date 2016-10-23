@@ -505,7 +505,7 @@ function validate_product(){
     }
     
     if($("#pais").val() != "ES"  && ($("#poblacion").val() == null || $("#poblacion").val().length == 0)){
-        console.log($("#poblacion").val());
+        //console.log($("#poblacion").val());
         //return 'default_provincia';
     }else if($("#pais").val() != "ES"  && $("#poblacion").val() == "Selecciona una Poblacion"){
         $("#poblacion").focus().after("<span class='error'>Error</span>");
