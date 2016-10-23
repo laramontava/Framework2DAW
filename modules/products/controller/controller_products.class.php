@@ -203,7 +203,7 @@
 		}
 	}
 	
-	///////////////////  LOAD PRODUCTS  ///////////////////
+	///////////////////  LIST PRODUCTS  ///////////////////
 	if ($_GET['idProduct']){
     	$id= $_GET['idProduct'];
     	$path_model=$_SERVER['DOCUMENT_ROOT'] . '/Framework/modules/products/model/model/';
