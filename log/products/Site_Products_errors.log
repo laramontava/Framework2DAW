@@ -1,0 +1,54 @@
+ERROR: [2] require_once(view/inc/404.php): failed to open stream: No such file or directory
+Warning on line 27 in file /home/ubuntu/workspace/Framework/utils/common.inc.php
+ | 26.10.2016 11:30:36  |  User:   | products_frontend | response 200
+ERROR: [2] require_once(view/inc/404.php): failed to open stream: No such file or directory
+Warning on line 27 in file /home/ubuntu/workspace/Framework/utils/common.inc.php
+ | 26.10.2016 11:32:34  |  User:   | products_frontend | response 200
+ERROR: [2] require(/home/ubuntu/workspace/Framework/modules/products_frontend/model/DAO/products_dao.class.singleton.php): failed to open stream: No such file or directory
+Warning on line 4 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 26.10.2016 11:38:56  |  User:   | products_frontend | response 200
+ERROR: [2] require(/home/ubuntu/workspace/Framework/modules/products_frontend/model/DAO/products_dao.class.singleton.php): failed to open stream: No such file or directory
+Warning on line 4 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 26.10.2016 11:39:21  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:40:27  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:40:27  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:45:45  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:45:45  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:45:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:45:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:46:30  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:46:30  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:47:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:47:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:47:50  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:47:50  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:48:32  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 26.10.2016 11:48:32  |  User:   | products_frontend | response 200

@@ -16,7 +16,6 @@
 	///////////////////  ALTA  ///////////////////
 	if ((isset($_POST['alta_products_json']))){
 	    alta_products();
-	    exit;
 	}
 
 	function alta_products(){
@@ -60,11 +59,10 @@
        
         $arrValue = loadModel($path_model, "products_model", "create_products", $arrArgument);
 		
-		
         if ($arrValue)	
-            $mensaje = "<div class="."alert-success"."><strong>Success!</strong> The product has been saved.</div>";
+            $mensaje = "The product has been saved.";
         else
-            $mensaje = "<div class="."alert-danger".">An error occurred.</div>";
+            $mensaje = "An error occurred.";
             
 		
         $_SESSION['product'] = $arrArgument;
@@ -74,7 +72,7 @@
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
         echo json_encode($jsondata);
-        //exit;
+        exit;
         
 	    } else {
 	        $jsondata["success"] = false;
