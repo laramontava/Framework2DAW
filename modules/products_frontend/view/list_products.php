@@ -1,8 +1,3 @@
-<script type="text/javascript" src="modules/products_frontend/view/js/jquery.bootpag.min.js"></script>
-<script type="text/javascript" src="modules/products_frontend/view/js/list_products.js" ></script>
-<div id="results"></div>
-
-
 <div id="list_prod" class="row text-center pad-row">
             <section id="home" class="head-main-img">
 
@@ -16,6 +11,10 @@
 
        </section>
     <!--/.HEADING END -->
+
+<script type="text/javascript" src="modules/products_frontend/view/js/jquery.bootpag.min.js"></script>
+<script type="text/javascript" src="modules/products_frontend/view/js/list_products.js" ></script>
+<div id="results"></div>
 
 <center>
     <div class="pagination"></div>
@@ -33,19 +32,16 @@
         <br>
         <br>-->
         <div id="details">
-            <div id="img_prod" class="prodImg"></div> 
+            <div id="avatar" class="avatar"></div> 
 
             <div id="container">
 
-                <h4> <strong><div id="name_prod"></div></strong> </h4>
+                <h4> <strong><div id="name"></div></strong> </h4>
                 <br />
                 <p>
-                <div id="description_prod"></div>
+                <div id="description"></div>
                 </p>
-                <p>
-                <div id="titration_prod"></div>
-                </p>
-                <h2> <strong><div id="price_prod"></div></strong> </h5>    
+                <h2> <strong><div id="price"></div></strong> </h5>    
 
             </div>
 

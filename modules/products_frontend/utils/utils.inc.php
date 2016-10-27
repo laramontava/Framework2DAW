@@ -24,7 +24,7 @@ function paint_template_error($message) {
     print("</div>");
 
 
-    /**
+    /*
       print ("<section id='error' class='container text-center'>");
       print ("<h1>404," . $message . "</h1>");
       print ("<p>The Page you are looking for doesn't exist or an other error occurred.</p>");

@@ -1,4 +1,5 @@
 //we do this so that  details_prod don't appear
+console.log("modal");
 $("#details_prod").hide();
 $(document).ready(function () {
     $('.prod').click(function () {
@@ -8,6 +9,7 @@ $(document).ready(function () {
         $.get("modules/products_frontend/controller/controller_products.class.php?idProduct=" + id, function (data, status) {
             var json = JSON.parse(data);
             var product = json.product;
+            console.log(product);
             //alert(product.name);
             //console.log(product);
 
