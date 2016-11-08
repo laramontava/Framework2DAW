@@ -1,4 +1,6 @@
 <?php
+$path=$_SERVER['DOCUMENT_ROOT'].'/Framework/';
+define('SITE_ROOT', $path);
 require(SITE_ROOT . "modules/products_frontend/model/BLL/products_bll.class.singleton.php");
 
 class products_model {
@@ -32,6 +34,45 @@ class products_model {
     public function total_products() {
         return $this->bll->total_products_BLL();
     }
+    
+    public function create_product($arrArgument) {
+          return $this->bll->create_product_BLL($arrArgument);
+      }
+    
+    public function list_limit_products($arrArgument){
+            
+        return $this->bll->list_limit_products_BLL($arrArgument);
+    }
+        
+    public function count_products() {
+            
+        return $this->bll->count_products_BLL();
+    }
+    
+    public function select_column_products($arrArgument){
+        return $this->bll->select_column_products_BLL($arrArgument);
+    }
+    
+    public function select_like_products($arrArgument){
+        return $this->bll->select_like_products_BLL($arrArgument);
+    }
+    
+    public function count_like_products($arrArgument){
+        
+        return $this->bll->count_like_products_BLL($arrArgument);
+    }
+    
+    public function select_like_limit_products($arrArgument){
+        
+         return $this->bll->select_like_limit_products_BLL($arrArgument);
+    }
+    /*public function page_products($arrArgument) {
+        return $this->bll->page_products_BLL($arrArgument);
+    }
+    
+    public function total_products() {
+        return $this->bll->total_products_BLL();
+    }*/
     
 
 }

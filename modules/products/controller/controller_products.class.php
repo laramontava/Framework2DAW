@@ -148,8 +148,8 @@
 	if(  (isset($_GET["load_pais"])) && ($_GET["load_pais"] == true)  ){
 		$json = array();
 		
-    	$url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
-    	
+    	//$url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
+    	$url = 'https://programacion-laramontava.c9users.io/ListOfCountryNamesByName.json';
 		$path_model=$_SERVER['DOCUMENT_ROOT'].'/Framework/modules/products/model/model/';
 		$json = loadModel($path_model, "products_model", "obtain_paises", $url);
 		

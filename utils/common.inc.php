@@ -8,11 +8,7 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '') {
     $modelClass = $model_name;
 
     if (!method_exists($modelClass, $function)){
-      //die($function . ' function not found in Model ' . $model_name);
-      $message = $function . ' function not found in Model ' . $model_name;
-                $arrData = $message;
-                require_once 'view/inc/404.php';
-                die();
+      throw new Exception();
     }
       
     $obj = $modelClass::getInstance();
@@ -21,11 +17,7 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '') {
       return $obj->$function($arrArgument);
     }
   } else {
-    //die($model_name . ' Model Not Found under Model Folder');
-    $message = "Model Not Found under Model Folder";
-            $arrData = $message;
-            require_once 'view/inc/404.php';
-            die();
+    throw new Exception();
   }
 }
 
@@ -39,12 +31,20 @@ function loadView($rutaVista = '', $templateName= '', $arrPassValue = '') {
 				$arrData = $arrPassValue;
 			include_once($view_path);
 		} else {
+		  
+		  $result = filter_num_int($rutaVista);
+		  if($result['resultado']){
+		    $rutaVista = $result['datos'];
+		  } else {
+		    $rutaVista = http_response_code();
+		  }
+		  
 			$log = Log::getInstance();
-			$log->add_log_general("error loadView general", $_GET['module'], "response ".http_response_code()); //$text, $controller, $function
-			$log->add_log_user("error loadView general", "", $_GET['module'], "response ".http_response_code());//$msg, $username = "", $controller, $function
+			$log->add_log_general("error loadView general", $_GET['module'], "response ".$rutaVista); //$text, $controller, $function
+			$log->add_log_user("error loadView general", "", $_GET['module'], "response ".$rutaVista);//$msg, $username = "", $controller, $function
                         
                         
-			$result = response_code(http_response_code());
+			$result = response_code($rutaVista);
 			$arrData = $result;
 			require_once $_SERVER['DOCUMENT_ROOT'].'/Framework/view/inc/templates_error/'. "error" .'.php';
                         //die();

@@ -3,7 +3,7 @@
     $_SESSION['module'] = "";
     session_start();
     
-    require_once('view/inc/header.html');
+    require_once('view/inc/header.php');
     require_once('view/inc/navbar.php');
     
     if (PRODUCTION) { //we are in production
