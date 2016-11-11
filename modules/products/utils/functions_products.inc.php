@@ -89,7 +89,8 @@
             $valido = false;
         };
         
-        
+        /*echo json_encode($error);
+        exit;*/
         return $return = array('resultado' => $valido, 'error' => $error, 'datos' => $resultado);
         
     }

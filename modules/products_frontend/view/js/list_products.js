@@ -103,7 +103,8 @@ function count_product(keyword) {
             reset();
         }
         if (num_products == 1) {
-            search_product(keyword);
+            //search_product(keyword);
+            search(keyword);
         }
         if (num_products > 1) {
             search(keyword);
