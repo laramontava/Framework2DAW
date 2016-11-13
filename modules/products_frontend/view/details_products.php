@@ -19,7 +19,7 @@
             ?>   
             <div class="media">
                 <div class="pull-left">
-                    <img src="<?php echo $arrData['avatar']?>" class="img-product" >
+                    <img src="<?php echo $arrData['avatar']?>" class="img-product" id="avatar">
                 </div>
                 <div class="media-body">
                     <h3 class="media-heading title-product"><?php echo $arrData['name'] ?></h3>

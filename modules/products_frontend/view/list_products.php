@@ -12,8 +12,10 @@
        </section>
     <!--/.HEADING END -->
 
-<script type="text/javascript" src="modules/products_frontend/view/js/jquery.bootpag.min.js"></script>
-<script type="text/javascript" src="modules/products_frontend/view/js/list_products.js" ></script>
+<script type="text/javascript" src="<?php echo PRODUCTS_FE_JS_PATH ?>jquery.bootpag.min.js"></script>
+<script type="text/javascript" src="<?php echo PRODUCTS_FE_JS_PATH ?>list_products.js" ></script>
+<!--<script type="text/javascript" src="modules/products_frontend/view/js/jquery.bootpag.min.js"></script>
+<script type="text/javascript" src="modules/products_frontend/view/js/list_products.js" ></script>-->
 
 <center>
     <form name="search_prod" id="search_prod" class="search_prod">
