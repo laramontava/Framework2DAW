@@ -551,7 +551,7 @@ function validate_product(){
         }, "json").fail(function (xhr){
             
             console.log("fail");
-            
+            console.log(xhr);
             if (xhr.responseJSON.error.id)
                 $("#e_id").focus().after("<span class='error1'>" + xhr.responseJSON.error.id + "</span>");
             if (xhr.responseJSON.error.name)

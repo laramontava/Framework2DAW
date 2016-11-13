@@ -7741,6 +7741,7 @@ Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singl
 error paint_template_search | 08.11.2016 05:42:23  |  User:   | products | response 200
 ERROR: [8] Constant SITE_ROOT already defined
 Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+<<<<<<< HEAD
  | 09.11.2016 07:46:38  |  User:   | products_frontend | response 200
 ERROR: [8] Constant SITE_ROOT already defined
 Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
@@ -8729,3 +8730,243 @@ Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singl
 ERROR: [8] Constant MODEL_PATH already defined
 Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
  | 09.11.2016 08:23:30  |  User:   | products_frontend | response 200
+=======
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:43  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:47  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:47  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:47  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:47  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:53  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:53  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:53  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:53  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:54  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:06:57  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:06:57  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:57  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:06:57  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:06  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:06  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:06  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:06  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:08  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:10  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 05:07:14  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 05:07:14  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:14  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 05:07:14  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 10.11.2016 10:57:07  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:55  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/model/products_model.class.singleton.php
+ | 11.11.2016 12:06:56  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/modules/products_frontend/model/BLL/products_bll.class.singleton.php
+ | 11.11.2016 12:06:56  |  User:   | products_frontend | response 200
+ERROR: [8] Constant SITE_ROOT already defined
+Notice on line 3 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:56  |  User:   | products_frontend | response 200
+ERROR: [8] Constant MODEL_PATH already defined
+Notice on line 4 in file /home/ubuntu/workspace/Framework/model/Conf.class.singleton.php
+ | 11.11.2016 12:06:56  |  User:   | products_frontend | response 200
+>>>>>>> d579e5fd780c1b402abebda58d4b98651623d757
