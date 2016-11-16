@@ -1,19 +1,19 @@
 <?php
-//SITE_ROOT
+    //SITE_ROOT
     $path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
     define('SITE_ROOT', $path);
     
     //SITE_PATH
-    define('SITE_PATH','https://'.$_SERVER['HTTP_HOST'].'/25C framework_v3/');
+    define('SITE_PATH','https://'.$_SERVER['HTTP_HOST'].'/Framework/');
 	
 	//CSS
 	define('CSS_PATH', SITE_PATH . 'view/css/');
     
     //log
-    
     define('LOG_DIR',SITE_ROOT.'classes/Log.class.singleton.php');
     define('USER_LOG_DIR', SITE_ROOT . 'log/products/Site_Products_errors.log');
     define('GENERAL_LOG_DIR', SITE_ROOT . 'log/general/Site_General_errors.log');
+    
     //production
     define('PRODUCTION',true);
     
@@ -33,10 +33,14 @@
     define('UTILS',SITE_ROOT.'utils/');
     
     //model products_frontend
+    define('UTILS_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/utils/');
+    define('PRODUCTS_JS_LIB_PATH',SITE_ROOT.'modules/products_frontend/view/lib/');
+    define('PRODUCTS_FE_JS_PATH', SITE_PATH . 'modules/products_frontend/view/js/');
+    
     define('MODEL_PATH_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/model/');
     define('MODEL_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/model/model/');
     define('BLL_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/model/BLL/');
     define('DAO_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/model/DAO/');
-    define('UTILS_PRODUCTS_FE',SITE_ROOT.'modules/products_frontend/utils/');
-    define('PRODUCTS_FE_JS_PATH', SITE_PATH . 'modules/products_frontend/view/js/');
+    
+    
     

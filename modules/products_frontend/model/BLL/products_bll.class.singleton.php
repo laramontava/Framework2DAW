@@ -1,9 +1,9 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
-define('SITE_ROOT', $path);
-define('MODEL_PATH', SITE_ROOT . 'model/');
-require (MODEL_PATH . "Db.class.singleton.php");
-require(SITE_ROOT . "modules/products_frontend/model/DAO/products_dao.class.singleton.php");
+//$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
+//define('SITE_ROOT', $path);
+//define('MODEL_PATH', SITE_ROOT . 'model/');
+//require (MODEL_PATH . "Db.class.singleton.php");
+//require(SITE_ROOT . "modules/products_frontend/model/DAO/products_dao.class.singleton.php");
 
 class products_bll {
 
@@ -13,7 +13,7 @@ class products_bll {
 
     private function __construct() {
         $this->dao = products_dao::getInstance();
-        $this->db = Db::getInstance();
+        $this->db = db::getInstance();
     }
 
     public static function getInstance() {

@@ -1,7 +1,7 @@
 <?php
-$path=$_SERVER['DOCUMENT_ROOT'].'/Framework/';
-define('SITE_ROOT', $path);
-require(SITE_ROOT . "modules/products_frontend/model/BLL/products_bll.class.singleton.php");
+//$path=$_SERVER['DOCUMENT_ROOT'].'/Framework/';
+//define('SITE_ROOT', $path);
+//require(SITE_ROOT . "modules/products_frontend/model/BLL/products_bll.class.singleton.php");
 
 class products_model {
     
@@ -66,14 +66,5 @@ class products_model {
         
          return $this->bll->select_like_limit_products_BLL($arrArgument);
     }
-    /*public function page_products($arrArgument) {
-        return $this->bll->page_products_BLL($arrArgument);
-    }
-    
-    public function total_products() {
-        return $this->bll->total_products_BLL();
-    }*/
-    
-
 }
 

@@ -1,7 +1,7 @@
 <?php
-$path=$_SERVER['DOCUMENT_ROOT'].'/Framework/';
-define('SITE_ROOT', $path);
-define('MODEL_PATH',SITE_ROOT.'model/');
+//$path=$_SERVER['DOCUMENT_ROOT'].'/Framework/';
+//define('SITE_ROOT', $path);
+//define('MODEL_PATH',SITE_ROOT.'model/');
 
 class Conf {
   private $_userdb;
@@ -34,25 +34,4 @@ class Conf {
       return $this->$property;
     }
   }
-  /*
-  public function getUserDB() {
-  $var = $this->_userdb;
-  return $var;
-}
-
-public function getHostDB() {
-$var = $this->_hostdb;
-return $var;
-}
-
-public function getPassDB() {
-$var = $this->_passdb;
-return $var;
-}
-
-public function getDB() {
-$var = $this->_db;
-return $var;
-}
-*/
 }

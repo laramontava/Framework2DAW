@@ -40,14 +40,14 @@ function loadView($rutaVista = '', $templateName= '', $arrPassValue = '') {
 		  }
 		  
 			$log = Log::getInstance();
-			$log->add_log_general("error loadView general", $_GET['module'], "response ".$rutaVista); //$text, $controller, $function
-			$log->add_log_user("error loadView general", "", $_GET['module'], "response ".$rutaVista);//$msg, $username = "", $controller, $function
+			$log->add_log_general("error loadView", $_GET['module'], "response ".http_response_code()); //$text, $controller, $function
+			$log->add_log_user("error loadView", "", $_GET['module'], "response ".http_response_code());//$msg, $username = "", $controller, $function
                         
                         
-			$result = response_code($rutaVista);
+			$result = response_code(http_response_code());
 			$arrData = $result;
-			require_once $_SERVER['DOCUMENT_ROOT'].'/Framework/view/inc/templates_error/'. "error" .'.php';
-                        //die();
+			//require_once $_SERVER['DOCUMENT_ROOT'].'/Framework/view/inc/templates_error/'. "error" .'.php';
+        require_once VIEW_PATH_INC_ERROR. "error" .'.php';
 			
 		}
 	}

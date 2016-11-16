@@ -30,8 +30,9 @@ function paint_template_error($message) {
 }
 
 function paint_template_products($arrData) {
-    print ("<script type='text/javascript' src='". PRODUCTS_FE_JS_PATH. "modal_products.js' ></script> \n");
-    //print ("<script type='text/javascript' src='modules/products_frontend/view/js/modal_products.js' ></script>");
+    print ("<script type='text/javascript' src='/modules/products_frontend/view/js/modal_product.js' ></script>");
+    //print ("<script type='text/javascript' src='". PRODUCTS_FE_JS_PATH. "modal_products.js' ></script> \n");
+    
     print ("<section >");
     print ("<div class='container'>");
     print ("<div id='list_prod' class='row text-center pad-row'>");

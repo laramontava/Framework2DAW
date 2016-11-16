@@ -9,8 +9,8 @@
         <uri>autocomplete_products</uri>
     </function>
     <function>
-        <name>name_products</name>
-        <uri>name_products</uri>
+        <name>name</name>
+        <uri>name</uri>
     </function>
     <function>
         <name>count_products</name>
@@ -29,8 +29,8 @@
         <uri>view_error_false</uri>
     </function>
     <function>
-        <name>idProduct</name>
-        <uri>idProduct</uri>
+        <name>idproduct</name>
+        <uri>idproduct</uri>
     </function>
     <function>
         <name>obtain_products</name>

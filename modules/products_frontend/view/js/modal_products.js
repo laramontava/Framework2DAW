@@ -6,12 +6,12 @@ $(document).ready(function () {
         var id = this.getAttribute('id');
         //alert(id);
 
-        $.get("modules/products_frontend/controller/controller_products.class.php?idProducto=" + id, function (data, status) {
-            console.log(id);
+        //$.get("modules/products_frontend/controller/controller_products.class.php?idProducto=" + id, function (data, status) {
+        $.get("index.php?module=products_frontend&function=idproduct&idProducto="+id, function(data, status){
+            
             var json = JSON.parse(data);
-            console.log(json);
             var product = json.product;
-            console.log(product);
+            
             
             //alert(product.name);
             //console.log(product);
@@ -52,11 +52,11 @@ $(document).ready(function () {
                 .fail(function (xhr) {
                     //if  we already have an error 404
                     if (xhr.status === 404) {
-                        $("#results").load("modules/products_frontend/controller/controller_products.class.php?view_error=false");
+                        $("#results").load("index.php?module=products_frontend&function=view_error_false&view_error=false");
                     } else {
-                        $("#results").load("modules/products_frontend/controller/controller_products.class.php?view_error=true");
-                    }
-                    ;
+                        //$("#results").load("modules/products_frontend/controller/controller_products.class.php?view_error=true");
+                        $("#results").load("index.php?module=products_frontend&function=view_error_true&view_error=true");
+                    };
                 });
     });
 });

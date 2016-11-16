@@ -1,5 +1,5 @@
 <?php
-    class controller_products {
+    class controller_products_frontend {
         //include  with absolute route
         /*$path = $_SERVER['DOCUMENT_ROOT'] . '/Framework/';
         include($path . "modules/products_frontend/utils/utils.inc.php");-
@@ -13,21 +13,31 @@
         $_SESSION['module'] = "products_frontend";*/
         public function __construct() {
 			include(UTILS_PRODUCTS_FE . "utils.inc.php");
-			include LOG_DIR;
 			include(UTILS . "filters.inc.php");
 			include(UTILS . "utils.inc.php");
 			include(UTILS . "response_code.inc.php");
 			include(UTILS . "common.inc.php");
+			include LOG_DIR;
 			
 			$_SESSION['module'] = "products_frontend";
    		}
         
+        public function list_products() {
+   			require_once(VIEW_PATH_INC."header.php"); 
+			require_once(VIEW_PATH_INC."navbar.php");
+	
+            loadView('modules/products_frontend/view/', 'list_products.php');
+            
+            require_once(VIEW_PATH_INC."footer.html");
+        }
+        
         public function autocomplete_products() {
             if ((isset($_GET["autocomplete"])) && ($_GET["autocomplete"] === "true")) {
                 set_error_handler('ErrorHandler');
-                $model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
+                //$model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
                 try {
-                    $nameProducts = loadModel($model_path, "products_model", "select_column_products", "name");
+                    //$nameProducts = loadModel($model_path, "products_model", "select_column_products", "name");
+                    $nameProducts = loadModel(MODEL_PRODUCTS_FE, "products_model", "select_column_products", "name");
                 } catch (Exception $e) {
                     showErrorPage(2, "ERROR - 503 BD", 'HTTP/1.0 503 Service Unavailable', 503);
                 }
@@ -44,7 +54,7 @@
             }
         }
         
-        public function name_products(){
+        public function name(){
             if (($_GET["name"])) {
                 //filtrar $_GET["nom_product"]
                 $result = filter_string($_GET["name"]);
@@ -53,7 +63,7 @@
                 } else {
                     $criteria = '';
                 }
-                $model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
+                //$model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
                 set_error_handler('ErrorHandler');
                 try {
                    
@@ -61,8 +71,8 @@
                         "column" => "name",
                         "like" => $criteria
                     );
-                    $producto = loadModel($model_path, "products_model", "select_like_products", $arrArgument);
-            
+                    //$producto = loadModel($model_path, "products_model", "select_like_products", $arrArgument);
+                    $producto = loadModel(MODEL_PRODUCTS_FE, "products_model", "select_like_products", $arrArgument);
             
                     //throw new Exception(); //que entre en el catch
                 } catch (Exception $e) {
@@ -90,7 +100,7 @@
                 } else {
                     $criteria = '';
                 }
-                $model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
+                //$model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
                 set_error_handler('ErrorHandler');
                 try {
             
@@ -98,7 +108,8 @@
                         "column" => "name",
                         "like" => $criteria
                     );
-                    $total_rows = loadModel($model_path, "products_model", "count_like_products", $arrArgument);
+                    //$total_rows = loadModel($model_path, "products_model", "count_like_products", $arrArgument);
+                    $total_rows = loadModel(MODEL_PRODUCTS_FE, "products_model", "count_like_products", $arrArgument);
                     //throw new Exception(); //que entre en el catch
                 } catch (Exception $e) {
                     showErrorPage(2, "ERROR - 503 BD", 'HTTP/1.0 503 Service Unavailable', 503);
@@ -131,7 +142,7 @@
                     $criteria = '';
                 }
                 $item_per_page = 6;
-                $model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
+                //$model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
                 set_error_handler('ErrorHandler');
                 try {
                     //loadmodel
@@ -140,8 +151,9 @@
                         "like" => $criteria
                     );
             
-                    $resultado = loadModel($model_path, "products_model", "count_like_products", $arrArgument);
-                    
+                    //$resultado = loadModel($model_path, "products_model", "count_like_products", $arrArgument);
+                    $resultado = loadModel(MODEL_PRODUCTS_FE, "products_model", "count_like_products", $arrArgument);
+                    //echo json_encode($resultado);exit;
                     $resultado = $resultado[0]["total"];
                     
                     $pages = ceil($resultado / $item_per_page); //break total records into pages
@@ -173,11 +185,12 @@
         public function view_error_false() {
             if ((isset($_GET["view_error"])) && ($_GET["view_error"] ==="false")) {
                 //showErrorPage(0, "ERROR - 404 NO PRODUCTS");
-                showErrorPage(3, "RESULTS NOT FOUND <br> Please, check over if you misspelled any letter of the search word");
+                showErrorPage(0, "ERROR - 404 RESULTS NOT FOUND <br> Please, check over if you misspelled any letter of the search word");
             }
         }
     
-        public function idProduct() {
+        public function idproduct() {
+            //echo json_encode($_GET["idProducto"]);exit;
             if ($_GET["idProducto"]) {
                 $result = filter_num_int($_GET["idProducto"]);
                 if ($result['resultado']) {
@@ -188,8 +201,8 @@
                 set_error_handler('ErrorHandler');
                 try {
                     $producto = false;
-                    $path_model = SITE_ROOT . 'modules/products_frontend/model/model/';
-                    $producto = loadModel($path_model, "products_model", "details_products", $id);
+                    //$path_model = SITE_ROOT . 'modules/products_frontend/model/model/';
+                    $producto = loadModel(MODEL_PRODUCTS_FE, "products_model", "details_products", $id);
                 } catch (Exception $e) {
                     //header('HTTP/1.0 503 Service Unavailable', true, 503);
                     // loadView("503");
@@ -203,11 +216,8 @@
                 } else {
                     showErrorPage(2, "ERROR - 404 NO DATA", 'HTTP/1.0 404 Not Found', 404);
                 }
-            }
-        }
-        
-        public function obtain_products() {
-            if (isset($_POST["page_num"])) {
+            }else{
+                if (isset($_POST["page_num"])) {
                     $result = filter_num_int($_POST["page_num"]);
                     if ($result['resultado']) {
                         $page_number = $result['datos'];
@@ -239,7 +249,7 @@
                 }
             
                 $position = (($page_number - 1) * $item_per_page);
-                $model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
+                //$model_path = SITE_ROOT . 'modules/products_frontend/model/model/';
                 $limit = $item_per_page;
                 $arrArgument = array(
                     "column" => "name",
@@ -250,8 +260,8 @@
                 set_error_handler('ErrorHandler');
                 try {
             
-                    $resultado = loadModel($model_path, "products_model", "select_like_limit_products", $arrArgument);
-               
+                    //$resultado = loadModel($model_path, "products_model", "select_like_limit_products", $arrArgument);
+                    $resultado = loadModel(MODEL_PRODUCTS_FE, "products_model", "select_like_limit_products", $arrArgument);
                     } catch (Exception $e) {
                     showErrorPage(0, "ERROR - 503 BD Unavailable", 503);
                 }
@@ -264,5 +274,7 @@
                     //paint_template_error("NO PRODUCTS");
                     showErrorPage(0, "ERROR - 404 NO PRODUCTS", 404);
                 }
+            }
         }
+        
     }
